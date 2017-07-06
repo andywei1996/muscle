@@ -25,13 +25,14 @@ var server = app.listen(process.env.PORT || 8000,function(){
 
 //回復一模一樣的訊息
 bot.on('message',function(event){
+    //收到通關密語後，建立一個選單讓使用者選擇想要使用的功能
     if (event.message.type = 'text' && event.message.text == "我想鍛鍊"){
         var msg = {
             "type": "template",
-            "altText": "firstquestion",
+            "altText": "您好，初次見面！",
             "template":{
                 "type": "buttons",
-                "title": "初次見面！",
+                "title": "您好，初次見面！",
                 "text": "請問您想使用哪一項功能呢？",
                 "actions":[
                     {
@@ -64,7 +65,3 @@ bot.on('message',function(event){
     
 });
 
-//建立一個選單讓使用者選擇想要使用的功能
-// bot.on('message',function(event){
-    
-// });
