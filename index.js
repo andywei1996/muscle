@@ -65,6 +65,6 @@ bot.on('message',function(event){
 });
 
 //建立一個選單讓使用者選擇想要使用的功能
-bot.on('message',function(event){
+// bot.on('message',function(event){
     
-});
+// });
