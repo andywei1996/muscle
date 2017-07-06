@@ -22,3 +22,15 @@ var server = app.listen(process.env.PORT || 8000,function(){
     console.log("App now running on port", port);
 
 });
+
+//回復一模一樣的訊息
+bot.on('message',function(event){
+    if (event.message.type = 'text'){
+        var msg = event.message.text + "收到！";
+        event.reply(msg).then(function(data){
+            colsole.log(msg);
+        }).catch(function(error){
+            console.log('error');   //若有錯誤，catch下來後註記在log中
+        });
+    }
+});
