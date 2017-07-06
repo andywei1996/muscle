@@ -26,7 +26,38 @@ var server = app.listen(process.env.PORT || 8000,function(){
 //回復一模一樣的訊息
 bot.on('message',function(event){
     if (event.message.type = 'text'){
-        var msg = event.message.text + "收到！";
+        var msg = event.message.text + " 收到！";
+        event.reply(msg).then(function(data){
+            colsole.log(msg);
+        }).catch(function(error){
+            console.log('error');   //若有錯誤，catch下來後註記在log中
+        });
+    }
+});
+
+//建立一個選單讓使用者選擇想要使用的功能
+bot.on('message',function(event){
+    if (event.message.type = 'text' && event.message.text == "我想鍛鍊"){
+        var msg = {
+            "type": "template",
+            "altText": "firstquestion",
+            "template":{
+                "title": "初次見面！",
+                "text": "請問您想使用哪一項功能呢？",
+                "actions":[
+                    {
+                        "type": "postback",
+                        "label":"知識詢問",
+                        "data": "#"
+                    },
+                    {
+                        "type": "postback",
+                        "label": "鍛鍊姿勢查詢",
+                        "data": "#"
+                    }
+                ]
+            }
+        }
         event.reply(msg).then(function(data){
             colsole.log(msg);
         }).catch(function(error){
