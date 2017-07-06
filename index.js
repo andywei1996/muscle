@@ -42,6 +42,7 @@ bot.on('message',function(event){
             "type": "template",
             "altText": "firstquestion",
             "template":{
+                "type": "buttons",
                 "title": "初次見面！",
                 "text": "請問您想使用哪一項功能呢？",
                 "actions":[
