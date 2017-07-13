@@ -45,11 +45,6 @@ bot.on('message',function(event){
                         "type": "postback",
                         "label": "鍛鍊姿勢查詢",
                         "data": "#"
-                    },
-                    {
-                        "type": "url",
-                        "label": "%%%",
-                        "url": "http://www.xvideo.com"
                     }
                 ]
             }
