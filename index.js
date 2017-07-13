@@ -34,7 +34,7 @@ bot.on('message',function(event){
                 "type": "buttons",
                 "title": "您好，初次見面！",
                 "text": "請問您想使用哪一項功能呢？",
-                "thumbnailImageUrl": "https://www.flickr.com/photos/63857678@N03/34376500995/in/dateposted-public/" title="IMG_9447"><img src="https://farm3.staticflickr.com/2873/34376500995_622529550b_k.jpg",
+                "thumbnailImageUrl": "https://farm3.staticflickr.com/2873/34376500995_622529550b_k.jpg",
                 "actions":[
                     {
                         "type": "postback",
