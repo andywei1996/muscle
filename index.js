@@ -49,7 +49,7 @@ bot.on('message',function(event){
                     {
                         "type": "uri",
                         "label": "%%%",
-                        "data": "http://www.xvideo.com"
+                        "uri": "http://www.xvideo.com"
                     }
                 ]
             }
