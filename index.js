@@ -39,12 +39,17 @@ bot.on('message',function(event){
                     {
                         "type": "postback",
                         "label":"知識詢問",
-                        "data": "#"
+                        "data": ""
                     },
                     {
                         "type": "postback",
                         "label": "鍛鍊姿勢查詢",
                         "data": "#"
+                    },
+                    {
+                        "type": "uri",
+                        "label": "%%%",
+                        "data": "http://www.xvideo.com"
                     }
                 ]
             }
