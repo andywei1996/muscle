@@ -34,6 +34,7 @@ bot.on('message',function(event){
                 "type": "buttons",
                 "title": "您好，初次見面！",
                 "text": "請問您想使用哪一項功能呢？",
+                "thumbnailImageUrl": "https://flic.kr/p/UnJy62",
                 "actions":[
                     {
                         "type": "postback",
