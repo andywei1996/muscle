@@ -39,7 +39,7 @@ bot.on('message',function(event){
                     {
                         "type": "postback",
                         "label":"知識詢問",
-                        "data": ""
+                        "data": "#"
                     },
                     {
                         "type": "postback",
