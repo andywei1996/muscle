@@ -47,9 +47,9 @@ bot.on('message',function(event){
                         "data": "#"
                     },
                     {
-                        "type": "uri",
+                        "type": "url",
                         "label": "%%%",
-                        "uri": "http://www.xvideo.com"
+                        "url": "http://www.xvideo.com"
                     }
                 ]
             }
