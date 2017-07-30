@@ -1,8 +1,8 @@
 var linebot = require('linebot');
 var express = require('express');
-require('../scripts/main.js');
-dict1 = require('../scripts/data/dictionary.js');
-dict2 = require('../scripts/data/dict_custom.js');
+require('scripts/main.js');
+dict1 = require('scripts/data/dictionary.js');
+dict2 = require('scripts/data/dict_custom.js');
 
 
 var bot =linebot({
