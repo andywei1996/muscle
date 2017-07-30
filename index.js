@@ -61,6 +61,10 @@ bot.on('message',function(event){
     }
     else if (event.message.type = 'text'){
         var msg = event.message.text + " 收到！";
+		
+		node_jieba_parsing([dict1, dict2], event.message.text, function (_result) {
+			console.log(_result.join(" "));
+		});
         event.reply(msg).then(function(data){
             colsole.log(msg);
         }).catch(function(error){
