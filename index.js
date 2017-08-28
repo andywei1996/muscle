@@ -117,7 +117,7 @@ bot.on('message',function(event){
                         //計算BMR
                         funccode = "BMR";
                         funcstep = 1;
-                        event.reply("");
+                        event.reply("好的，那先請問您的性別？");
                     }
                     break;
                 }
