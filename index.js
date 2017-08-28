@@ -6,7 +6,8 @@ dict2 = require('./scripts/data/dict_custom.js');
 var stopwords=[];
 var fs = require("fs");
 fs.readFile("/scripts/data/stopwords.txt", function(file){
-    stopwords = file.split("\n");
+    console.log(file);
+    //stopwords = file.split("\n");
 })
 
 
