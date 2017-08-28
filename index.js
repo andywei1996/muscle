@@ -61,10 +61,13 @@ bot.on('message',function(event){
     }
     else if (event.message.type = 'text'){
         var msg = event.message.text + " 收到！";
-		
+        
+        //使用Jieba方法將接收到的文字內容(event.message.text)進行斷詞，並逐詞儲存至(_result)陣列
+        //同時將斷詞結果輸出到log中。
 		node_jieba_parsing([dict1, dict2], event.message.text, function (_result) {
-			console.log(_result.join(" "));
-		});
+			console.log(_result.join("/"));
+        });
+        //=======================
         event.reply(msg).then(function(data){
             colsole.log(msg);
         }).catch(function(error){
