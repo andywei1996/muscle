@@ -5,11 +5,34 @@ dict1 = require('./scripts/data/dictionary.js');
 dict2 = require('./scripts/data/dict_custom.js');
 var stopwords=[];
 var fs = require("fs");
-fs.readFile("/scripts/data/stopwords.txt", function(file){
-    console.log(file);
-    //stopwords = file.split("\n");
-})
 
+function readLines(input, func){
+    var remaining = "";
+    input.on("data", function(data){
+        remaining += data;
+        var index = remaining.indexOf("\n");  
+        //indexOf : 回傳指定字串 在整個標的字串中首次出現的位置。
+        while(index > -1){  //indexOf回傳-1時代表下面已經沒有指定字串
+            var line = remaining.substring(0, index);
+            //substring 可以回傳在兩個指定的關鍵字之間的資料
+            remaining = remaining.substring(index+1);
+            //將提取過後的資料去除，使remaining變數變成全部尚未處理的內容
+            func(line);
+            index = remaining.indexOf("\n");
+        }
+    });
+
+    input.on("end", function(){
+        if(remaining.length > 0){
+            func(remaining);
+        }
+    });
+}
+function showdata(data){
+    console.log("Line:"+ data);
+}
+var input = fs.createReadStream("/scripts/data/stopwords.txt");
+readLines(input,func);
 
 var bot =linebot({
     channelId: "1523378933",  //註冊Line Bot的Channel ID
