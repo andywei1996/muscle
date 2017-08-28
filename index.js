@@ -21,7 +21,7 @@ function readLines(input, func){
             stopwords[i] = line;
             remaining = remaining.substring(index+1);
             //將提取過後的資料去除，使remaining變數變成全部尚未處理的內容
-            func(stopwords[i]);
+            //func(stopwords[i]);
             i += 1;
             index = remaining.indexOf("\n");
         }
@@ -29,7 +29,7 @@ function readLines(input, func){
 
     input.on("end", function(){
         if(remaining.length > 0){
-            func(remaining);
+            //func(remaining);
         }
     });
 }
@@ -150,6 +150,7 @@ bot.on('message',function(event){
         else if (funcstep == 4){
             var _weight = parseFloat(event.message.text);
             var bmr_result = 10*_weight + 6.25*_height - 5*_age;// + _sex;
+            console.log(bmr_result);
             event.reply("您的基礎代謝率是"+bmr_result);
             funccode = "home";
             funcstep = 0;
