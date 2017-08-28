@@ -153,6 +153,7 @@ bot.on('message',function(event){
             event.reply("您的基礎代謝率是"+bmr_result);
             funccode = "home";
             funcstep = 0;
+        }
     }
     
 });
