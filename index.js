@@ -31,7 +31,7 @@ function readLines(input, func){
 function showdata(data){
     console.log("Line:"+ data);
 }
-var input = fs.createReadStream("/scripts/data/stopwords.txt");
+var input = fs.createReadStream("./scripts/data/stopwords.txt");
 readLines(input,showdata);
 
 var bot =linebot({
