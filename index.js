@@ -3,9 +3,11 @@ var express = require('express');
 require('./scripts/main.js');
 dict1 = require('./scripts/data/dictionary.js');
 dict2 = require('./scripts/data/dict_custom.js');
+var funccode = "home"; //自定義參數：功能代碼
+var funcstep = 0;   //自定義參數：功能步驟代號
+
 var stopwords=[];
 var fs = require("fs");
-
 function readLines(input, func){
     var remaining = "";
     input.on("data", function(data){
@@ -91,12 +93,13 @@ bot.on('message',function(event){
             console.log('error');   //若有錯誤，catch下來後註記在log中
         });
     }
-    else if (event.message.type = 'text'){
-        var msg = event.message.text + " 收到！";
+    else if (event.message.type = 'text' && funccode == "home"){  //接收純文字內容
+        //var msg = event.message.text + " 收到！";
         
         //使用Jieba方法將接收到的文字內容(event.message.text)進行斷詞，並逐詞儲存至(_result)陣列
         //同時將斷詞結果輸出到log中。
 		node_jieba_parsing([dict1, dict2], event.message.text, function (_result) {
+            //先去除停止詞（停止詞庫：./scripts/data/stopwords.txt）========
             for (i = 0; i < _result.length ; i++){
                 for (j=0;j<stopwords.length;j++){
                     if(_result[i] == stopwords[j]){
@@ -104,7 +107,21 @@ bot.on('message',function(event){
                     }
                 }
             }
-			console.log(_result.join("/"));
+            //==========================================================
+            console.log(_result.join("/"));
+            
+            var BMR = ["BMR","基礎代謝率"];
+            for (i = 0; i < _result.length; i++){
+                for(j = 0; j < BMR.length; j++){
+                    if(_result[i] == BMR[j]){
+                        //計算BMR
+                        funccode = "BMR";
+                        funcstep = 1;
+                        event.reply("");
+                    }
+                    break;
+                }
+            }
         });
         //=======================
         event.reply(msg).then(function(data){
@@ -112,6 +129,30 @@ bot.on('message',function(event){
         }).catch(function(error){
             console.log('error');   //若有錯誤，catch下來後註記在log中
         });
+    }
+    else if(event.message.type = 'text' && funccode == "BMR"){
+        if (funcstep == 1){
+            if (event.message.text = "男") var _sex = 5;
+            else var _sex = -161;
+            event.reply("好的，請輸入您的年齡(實歲)");
+            funcstep = 2;
+        }
+        else if (funcstep == 2){
+            var _age = event.message.text;
+            event.reply("好的，接下來請輸入您的身高(公分)");
+            funcstep = 3;
+        }
+        else if (funcstep == 3){
+            var _height = event.message.text;
+            event.reply("最後請您請輸入您的體重(公斤)");
+            funcstep = 4;
+        }
+        else if (funcstep == 4){
+            var _weight = event.message.text;
+            var bmr_result = 10*_weight + 6.25*_height - 5*_age + _sex;
+            event.reply("您的基礎代謝率是"+bmr_result);
+            funccode = "home";
+            funcstep = 0;
     }
     
 });
