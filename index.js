@@ -19,8 +19,8 @@ function readLines(input, func){
             stopwords[i] = line;
             remaining = remaining.substring(index+1);
             //將提取過後的資料去除，使remaining變數變成全部尚未處理的內容
-            i += 1;
             func(stopwords[i]);
+            i += 1;
             index = remaining.indexOf("\n");
         }
     });
