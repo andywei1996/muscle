@@ -151,7 +151,7 @@ bot.on('message',function(event){
             var _weight = parseFloat(event.message.text);
             var bmr_result = 10*_weight + 625*_height/100 - 5*_age;// + _sex;
             console.log(bmr_result);
-            event.reply("您的基礎代謝率是"+bmr_result);
+            event.reply("您的基礎代謝率是"+toString(bmr_result));
             funccode = "home";
             funcstep = 0;
         }
