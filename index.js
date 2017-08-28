@@ -32,7 +32,7 @@ function showdata(data){
     console.log("Line:"+ data);
 }
 var input = fs.createReadStream("/scripts/data/stopwords.txt");
-readLines(input,func);
+readLines(input,showdata);
 
 var bot =linebot({
     channelId: "1523378933",  //註冊Line Bot的Channel ID
