@@ -3,6 +3,11 @@ var express = require('express');
 require('./scripts/main.js');
 dict1 = require('./scripts/data/dictionary.js');
 dict2 = require('./scripts/data/dict_custom.js');
+var stopwords=[];
+var fs = require("fs");
+fs.readFile("/scripts/data/stopwords.txt", function(file){
+    stopwords = file.split("\n");
+})
 
 
 var bot =linebot({
@@ -65,6 +70,13 @@ bot.on('message',function(event){
         //使用Jieba方法將接收到的文字內容(event.message.text)進行斷詞，並逐詞儲存至(_result)陣列
         //同時將斷詞結果輸出到log中。
 		node_jieba_parsing([dict1, dict2], event.message.text, function (_result) {
+            for (i = 0; i < _result.length ; i++){
+                for (j=0;j<stopwords.length;j++){
+                    if(_result[i] == stopwords[j]){
+                        _result.splice(i,1);
+                    }
+                }
+            }
 			console.log(_result.join("/"));
         });
         //=======================
