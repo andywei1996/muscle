@@ -10,14 +10,17 @@ function readLines(input, func){
     var remaining = "";
     input.on("data", function(data){
         remaining += data;
+        var i = 0;
         var index = remaining.indexOf("\n");  
         //indexOf : 回傳指定字串 在整個標的字串中首次出現的位置。
         while(index > -1){  //indexOf回傳-1時代表下面已經沒有指定字串
             var line = remaining.substring(0, index);
             //substring 可以回傳在兩個指定的關鍵字之間的資料
+            stopwords[i] = line;
             remaining = remaining.substring(index+1);
             //將提取過後的資料去除，使remaining變數變成全部尚未處理的內容
-            func(line);
+            i += 1;
+            func(stopwords[i]);
             index = remaining.indexOf("\n");
         }
     });
