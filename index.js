@@ -133,28 +133,28 @@ bot.on('message',function(event){
     else if(event.message.type = 'text' && funccode == "BMR"){
         if (funcstep == 1){
             if (event.message.text = "男") var _sex = 5;
-            else var _sex = -161;
+            else _sex = -161;
             event.reply("好的，請輸入您的年齡(實歲)");
             console.log(_sex);
             funcstep = 2;
         }
         else if (funcstep == 2){
-            var _age = Number(event.message.text);
+            _age = Number(event.message.text);
             console.log(_age);
             event.reply("好的，接下來請輸入您的身高(公分)");
             funcstep = 3;
         }
         else if (funcstep == 3){
-            var _height = Number(event.message.text);
+            _height = Number(event.message.text);
             console.log(_height);
             event.reply("最後請您請輸入您的體重(公斤)");
             funcstep = 4;
         }
         else if (funcstep == 4){
-            var _weight = Number(event.message.text);
+            _weight = Number(event.message.text);
             console.log(_weight);
-            var bmr_result = 0;
-            bmr_result = (10 * _weight) + (625 * _height) - (5 * _age);// + _sex;
+            bmr_result = 0;
+            bmr_result = (10 * _weight) + (6.25 * _height) - (5 * _age);// + _sex;
             console.log(bmr_result);
             event.reply("您的基礎代謝率是"+String(bmr_result));
             funccode = "home";
