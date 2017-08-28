@@ -138,20 +138,20 @@ bot.on('message',function(event){
             funcstep = 2;
         }
         else if (funcstep == 2){
-            var _age = parseFloat(event.message.text);
+            var _age = Number(event.message.text);
             event.reply("好的，接下來請輸入您的身高(公分)");
             funcstep = 3;
         }
         else if (funcstep == 3){
-            var _height = parseFloat(event.message.text);
+            var _height = Number(event.message.text);
             event.reply("最後請您請輸入您的體重(公斤)");
             funcstep = 4;
         }
         else if (funcstep == 4){
-            var _weight = parseFloat(event.message.text);
+            var _weight = Number(event.message.text);
             var bmr_result = 10*_weight + 625*_height/100 - 5*_age;// + _sex;
             console.log(bmr_result);
-            event.reply("您的基礎代謝率是"+toString(bmr_result));
+            event.reply("您的基礎代謝率是"+String(bmr_result));
             funccode = "home";
             funcstep = 0;
         }
