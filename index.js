@@ -139,6 +139,7 @@ bot.on('message',function(event){
         }
         else if (funcstep == 2){
             var _age = Number(event.message.text);
+            console.log(_age);
             event.reply("好的，接下來請輸入您的身高(公分)");
             funcstep = 3;
         }
