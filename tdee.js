@@ -101,5 +101,5 @@ exports.bmrcount = function(event, init_funcstep){
         
     }
     console.log("inner funcstep = " + funcstep);
-    // return funcstep;
+    return funcstep;
 }
