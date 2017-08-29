@@ -117,56 +117,62 @@ bot.on('message',function(event){
                     }
                 }
             }
-            //==========================================================
-            console.log(_result.join("/"));
-
-            var QUESTION = ["什","啥","什麼","?"]
-            var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
-            
-            for (i = 0; i < _result.length; i++){
-                for(j = 0; j < BMR.length; j++){
-                    if(_result[i] == BMR[j]){
-                        //計算BMR
-                        funccode = "BMR";
-                        funcstep = 1;
-                        var msg = {
-                            "type": "template",
-                            "altText": "好的，那先請問您的性別？\n（男／女)",
-                            "template": {
-                                "type": "confirm",
-                                "text": "好的，那先請問您的性別？",
-                                "actions": [
-                                    {
-                                      "type": "message",
-                                      "label": "男",
-                                      "text": "男"
-                                    },
-                                    {
-                                      "type": "message",
-                                      "label": "女",
-                                      "text": "女"
-                                    }
-                                ]
-                            }
-                        }
-                        event.reply(msg);                        
-                    }
-                    break;
-                }
-            }
-            for (i = 0; i < _result.length; i++){
-                for(j = 0; j < QUESTION.length; j++){
-                    if(_result[i] == QUESTION[j]){
-                        //詢問模式
-                        funccode = "askQuestion";
-                        console.log("now funccode :"+funccode);
-                        _result.splice(i,1);
-                        askQuestion(event,_result);
-                    }
-                    break;
-                }
-            }
         });
+        //==========================================================
+        console.log(_result.join("/"));
+
+        var QUESTION = ["什","啥","什麼","?"]
+        var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
+
+        for (i = 0; i < _result.length; i++){
+            for(j = 0; j < BMR.length; j++){
+                if(_result[i] == BMR[j]){
+                    //計算BMR
+                    funccode = "BMR";
+                    funcstep = 1;
+                    var msg = {
+                        "type": "template",
+                        "altText": "好的，那先請問您的性別？\n（男／女)",
+                        "template": {
+                            "type": "confirm",
+                            "text": "好的，那先請問您的性別？",
+                            "actions": [
+                                {
+                                    "type": "message",
+                                    "label": "男",
+                                    "text": "男"
+                                },
+                                {
+                                    "type": "message",
+                                    "label": "女",
+                                    "text": "女"
+                                }
+                            ]
+                        }
+                    }
+                    event.reply(msg);                        
+                }
+                break;
+            }
+            for(j = 0; j < QUESTION.length; j++){
+                if(_result[i] == QUESTION[j]){
+                    //詢問模式
+                    funccode = "askQuestion";
+                    console.log("now funccode :"+funccode);
+                    _result.splice(i,1);
+                    for (i = 0; i < _result.length; i++){
+                        if(_result[i]=="TDEE"||_result[i]=="tdee"){
+                            tdeebmr.whatistdee(event);
+                            funccode = "home";
+                        }
+                    }
+                }
+                break;
+            }
+        }
+        // for (i = 0; i < _result.length; i++){
+            
+        // }
         //=======================
     }
     else if(event.message.type = 'text' && funccode == "BMR"){
