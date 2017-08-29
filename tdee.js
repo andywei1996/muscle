@@ -76,7 +76,8 @@ exports.bmrcount = function(event, funcstep){
                 console.log("step Error.");
                 console.log(funcstep);
         }
-        return funcstep;
+        
         //console.log(funcstep);
     }
+    return funcstep;
 }
