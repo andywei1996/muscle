@@ -7,18 +7,21 @@ exports.bmrcount = function(event, inti_funcstep){
                 else _sex = -161;
                 event.reply("好的，請輸入您的年齡(實歲)");
                 funcstep += 1;
+                console.log(funcstep);
                 break;
 
             case 2:
                 _age = Number(event.message.text);
                 event.reply("好的，接下來請輸入您的身高(公分)");
                 funcstep += 1;
+                console.log(funcstep);
                 break;
 
             case 3:
                 _height = Number(event.message.text);
                 event.reply("最後請您請輸入您的體重(公斤)");
                 funcstep += 1;
+                console.log(funcstep);
                 break;
 
             case 4:
@@ -56,6 +59,7 @@ exports.bmrcount = function(event, inti_funcstep){
                     console.log("ERROR"+error);
                 });
                 funcstep += 1;
+                console.log(funcstep);
                 break;
 
             case 5:
@@ -68,14 +72,16 @@ exports.bmrcount = function(event, inti_funcstep){
                 
                 funccode = "home";
                 funcstep = 0;
-                
+                console.log(funcstep);
                 break;  
             default:
                 event.reply("程式錯誤，請重新操作。");
                 console.log("step Error.");
                 funccode = "home";
                 funcstep = 0;
+                console.log(funcstep);
         }
         return funcstep;
+        console.log(funcstep);
     }
 }
