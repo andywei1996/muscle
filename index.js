@@ -183,10 +183,12 @@ bot.on('message',function(event){
             funcstep = 5;
         }
         else if (funcstep == 5){
-            if (event.message.type == "message" && event.message.text == "好R"){
+            if (event.message.type == "text" && event.message.text == "好R"){
                 event.reply("您的TDEE是"+(bmr_result - _sex)).then(function(data){
                     console.log(bmr_result - _sex);
                 });
+                funccode = "home";
+                funcstep = 0;
 
                 
             }
