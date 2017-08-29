@@ -1,4 +1,4 @@
-else if(event.message.type = 'text' && funccode == "BMR"){
+if(event.message.type = 'text' && funccode == "BMR"){
     if (funcstep == 1){
         if (event.message.text = "男") _sex = 5; //變數若未經var宣告即為全域變數
         else _sex = -161;
