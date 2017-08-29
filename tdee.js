@@ -76,5 +76,6 @@ exports.bmrcount = function(event, inti_funcstep){
                 funccode = "home";
                 funcstep = 0;
         }
+        return funcstep;
     }
 }
