@@ -1,4 +1,4 @@
-exports.bmrcount = function(event, funcstep){
+exports.bmrcount = function(event){
 
     switch (funcstep){
         case 1:
