@@ -1,4 +1,4 @@
-exports.bmrcount(function(funcstep){
+exports.bmrcount = function(funcstep){
 
     switch (funcstep){
         case 1:
@@ -75,4 +75,4 @@ exports.bmrcount(function(funcstep){
             funccode = "home";
             funcstep =0;
         }
-});
+}
