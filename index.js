@@ -158,8 +158,7 @@ bot.on('message',function(event){
             console.log(_weight);
             bmr_result = (10 * _weight) + (6.25 * _height) - (5 * _age);// + _sex;
             //console.log(bmr_result);
-
-            event.reply({
+            var msg = {
                 "type": "template",
                 "template": {
                     "type": "button",
@@ -179,8 +178,12 @@ bot.on('message',function(event){
                     ]
                 }
             } 
+            event.reply(msg).then(function(data){
+                console.log(msg);
+            }.catch(function(error){
+                console.log(error);
+            }));
                 //"您的基礎代謝率是"+String(bmr_result)
-            );
             funccode = "home";
             funcstep = 0;
         }
