@@ -69,6 +69,7 @@ exports.bmrcount = function(event, init_funcstep){
                     }); 
                     
                 }
+                funcstep = 0;
                 console.log(funcstep);
                 break;  
             default:
