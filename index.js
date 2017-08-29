@@ -136,8 +136,7 @@ bot.on('message',function(event){
     }
     else if(event.message.type = 'text' && funccode == "BMR"){
         bmrcount.bmrcount(event, funcstep);
-        funccode = bmrcount.bmrcount();
-        console.log(funcstep);        
+        console.log("out funcstep = " + funcstep);        
         if(bmrcount.bmrcount() == 0){
             funcstep = 0;
             funccode = "home";

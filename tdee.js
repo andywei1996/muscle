@@ -1,5 +1,6 @@
-var funcstep;
-exports.bmrcount = function(event, funcstep){
+var funcstep = 1;
+exports.bmrcount = function(event, init_funcstep){
+    if(init_funcstep == 1){
         switch (funcstep){
             case 1:
                 if (event.message.text = "男") _sex = 5; //變數若未經var宣告即為全域變數
@@ -74,9 +75,10 @@ exports.bmrcount = function(event, funcstep){
                 event.reply("程式錯誤，請重新操作。");
                 console.log("step Error.");
                 // console.log(funcstep);
-        };
+        }
         
-        //console.log(funcstep);
-    
+        
+    }
+    console.log("inner funcstep = " + funcstep);
     return funcstep;
 }
