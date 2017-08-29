@@ -100,6 +100,7 @@ bot.on('message',function(event){
             console.log('error');   //若有錯誤，catch下來後註記在log中
         });
     }
+
     if (event.message.type == 'text' && funccode == "home"){  //接收純文字內容
         //var msg = event.message.text + " 收到！";
         
@@ -118,7 +119,7 @@ bot.on('message',function(event){
             }
             //==========================================================
             console.log(_result.join("/"));
-            
+            var QUESTION = ["什","啥","什麼","?"]
             var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
             for (i = 0; i < _result.length; i++){
                 for(j = 0; j < BMR.length; j++){
@@ -151,6 +152,16 @@ bot.on('message',function(event){
                     break;
                 }
             }
+            for (i = 0; i < _result.length; i++){
+                for(j = 0; j < QUESTION.length; j++){
+                    if(_result[i] == QUESTION[j]){
+                        //詢問模式
+                        funccode = "askQuestion";
+                        askQuestion(event,_result);
+                    }
+                    break;
+                }
+            }
         });
         //=======================
     }
@@ -164,4 +175,14 @@ bot.on('message',function(event){
     }
     
 });
+
+askQuestion = function(event,_result){
+    for (i = 0; i < _result.length; i++){
+        if(_result[i]=="TDEE"||_result[i]=="tdee"){
+            tdeebmr.whatistdee(event);
+            funccode = "home";
+        }
+    }
+
+}
 

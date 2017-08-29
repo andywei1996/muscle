@@ -106,7 +106,7 @@ exports.compute = function(event, funcstep){
     return funcstep;
 }
 
-whatistdee = function(event){
+exports.whatistdee = function(event){
     event.reply(
         "TDEE(Total Daily Energy Expenditure)\n"
         +"是每個人所需要維持自身體重所需要的每日熱量。\n"
