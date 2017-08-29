@@ -65,7 +65,11 @@ var server = app.listen(process.env.PORT || 8080,function(){
 //回復一模一樣的訊息
 bot.on('message',function(event){
     //收到通關密語後，建立一個選單讓使用者選擇想要使用的功能
-    if (event.message.type = 'text' && event.message.text == "我想鍛鍊"){
+    if(event.message.type == 'text' && event.message.text == "fuckreset"){
+        funccode = "home";funcstep = 0;
+        event.reply("done.");
+    }
+    else if (event.message.type == 'text' && event.message.text == "我想鍛鍊"){
         var msg = {
             "type": "template",
             "altText": "您好，初次見面！",
@@ -94,7 +98,7 @@ bot.on('message',function(event){
             console.log('error');   //若有錯誤，catch下來後註記在log中
         });
     }
-    else if (event.message.type = 'text' && funccode == "home"){  //接收純文字內容
+    else if (event.message.type == 'text' && funccode == "home"){  //接收純文字內容
         //var msg = event.message.text + " 收到！";
         
         //使用Jieba方法將接收到的文字內容(event.message.text)進行斷詞，並逐詞儲存至(_result)陣列
@@ -170,23 +174,18 @@ bot.on('message',function(event){
                             "label": "什麼是TDEE?",
                             "text": "什麼是TDEE?"
                         }
-                    
                     ]
                 }
-            } 
+            }
             event.reply(msg).then(function(data){
                 console.log(msg);
             }).catch(function(error){
-                console.log(error);
+                console.log("ERROR"+error);
             });
                 //"您的基礎代謝率是"+String(bmr_result)
             funccode = "home";
             funcstep = 0;
         }
-    }
-    else if(event.message.type = 'text' && event.message.text == "fuckreset"){
-        funccode = "home";funcstep = 0;
-        event.reply("done.");
     }
     
 });
