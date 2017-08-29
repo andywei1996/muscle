@@ -69,9 +69,6 @@ bot.on('message',function(event){
         funccode = "home";funcstep = 0;
         event.reply("done.");
     }
-});
-
-bot.on('message', function(event){
     if (event.message.type == 'text' && event.message.text == "我想鍛鍊"){
         var msg = {
             "type": "template",
@@ -101,8 +98,6 @@ bot.on('message', function(event){
             console.log('error');   //若有錯誤，catch下來後註記在log中
         });
     }
-});
-bot.on(function(event){
     if (event.message.type == 'text' && funccode == "home"){  //接收純文字內容
         //var msg = event.message.text + " 收到！";
         
@@ -137,7 +132,7 @@ bot.on(function(event){
         });
         //=======================
     }
-    else if(event.message.type = 'text' && funccode == "BMR"){
+    if(event.message.type = 'text' && funccode == "BMR"){
         if (funcstep == 1){
             if (event.message.text = "男") _sex = 5; //變數若未經var宣告即為全域變數
             else _sex = -161;
