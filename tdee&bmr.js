@@ -85,6 +85,9 @@ exports.compute = function(event, funcstep){
                 else if (event.message.text == "免了，謝謝"){
                     event.reply("😊");
                 }
+                else if (event.message.text == "什麼是TDEE?"){
+                    whatistdee(event);
+                }
                 funcstep = 0;
                 return funcstep;
                 console.log(funcstep);
@@ -101,4 +104,13 @@ exports.compute = function(event, funcstep){
     
     console.log("inner funcstep = " + funcstep);
     return funcstep;
+}
+
+whatistdee = function(event){
+    event.reply(
+        "TDEE(Total Daily Energy Expenditure)\n"
+        +"是每個人所需要維持自身體重所需要的每日熱量。\n"
+        +"體重越重，每日需要的熱量就越高。\n"
+        +"還有非常多的影響因素，例如每週運動量，年齡等等"         
+    );
 }
