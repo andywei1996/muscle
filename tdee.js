@@ -74,7 +74,7 @@ exports.bmrcount = function(event, funcstep){
                 event.reply("程式錯誤，請重新操作。");
                 console.log("step Error.");
                 // console.log(funcstep);
-        }
+        };
         
         //console.log(funcstep);
     
