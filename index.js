@@ -136,7 +136,7 @@ bot.on('message',function(event){
     }
     else if(event.message.type = 'text' && funccode == "BMR"){
 
-        bmrcount.bmrcount(funcstep);
+        bmrcount.bmrcount(event, funcstep);
 
         
         // if (funcstep == 1){
