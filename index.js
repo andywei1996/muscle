@@ -140,6 +140,7 @@ bot.on('message',function(event){
         if(bmrcount.bmrcount() == 0){
             funcstep = 0;
             funccode = "home";
+            console.log(funcstep);
         }
 
         

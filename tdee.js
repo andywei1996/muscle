@@ -82,6 +82,6 @@ exports.bmrcount = function(event, inti_funcstep){
                 console.log(funcstep);
         }
         return funcstep;
-        console.log(funcstep);
+        //console.log(funcstep);
     }
 }
