@@ -86,17 +86,20 @@ exports.bmrcount = function(event, init_funcstep){
                 else if (event.message.text == "免了，謝謝"){
                     event.reply("😊");
                 }
-                funcstep = 0;
+                funcstep = 1;
+                return 0;
                 console.log(funcstep);
                 break;  
             default:
                 event.reply("程式錯誤，請重新操作。");
                 console.log("step Error.");
+                funcstep = 1;
+                return 0;
                 // console.log(funcstep);
         }
         
         
     }
     console.log("inner funcstep = " + funcstep);
-    return funcstep;
+    // return funcstep;
 }
