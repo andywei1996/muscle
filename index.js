@@ -109,7 +109,7 @@ bot.on('message',function(event){
 		node_jieba_parsing([dict1, dict2], event.message.text, function (_result) {
             //先去除停止詞（停止詞庫：./scripts/data/stopwords.txt）========
             for (i = 0; i < _result.length ; i++){
-                for (j=0;j<stopwords.length;j++){
+                for (j=0;j < stopwords.length;j++){
                     if(_result[i] == stopwords[j]){
                         _result.splice(i,1);
                         //splice用來將陣列中的元素去除，並將去除後空下來的內容予以補位
@@ -160,8 +160,8 @@ bot.on('message',function(event){
                         funccode = "askQuestion";
                         console.log("now funccode :"+funccode);
                         _result.splice(i,1);
-                        for (i = 0; i < _result.length; i++){
-                            if(_result[i]=="TDEE"||_result[i]=="tdee"){
+                        for (k = 0; k < _result.length; k++){
+                            if(_result[k]=="TDEE"||_result[k]=="tdee"){
                                 tdeebmr.whatistdee(event);
                                 funccode = "home";
                             }
