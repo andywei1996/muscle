@@ -127,37 +127,33 @@ bot.on('message',function(event){
             }
         });
         //=======================
-        event.reply(msg).then(function(data){
-            colsole.log(msg);
-        }).catch(function(error){
-            console.log('error');   //若有錯誤，catch下來後註記在log中
-        });
+        // event.reply(msg).then(function(data){
+        //     colsole.log(msg);
+        // }).catch(function(error){
+        //     console.log('error');   //若有錯誤，catch下來後註記在log中
+        // });
     }
     else if(event.message.type = 'text' && funccode == "BMR"){
         if (funcstep == 1){
             if (event.message.text = "男") _sex = 5; //變數若未經var宣告即為全域變數
             else _sex = -161;
             event.reply("好的，請輸入您的年齡(實歲)");
-            console.log(_sex);
             funcstep = 2;
         }
         else if (funcstep == 2){
             _age = Number(event.message.text);
-            console.log(_age);
             event.reply("好的，接下來請輸入您的身高(公分)");
             funcstep = 3;
         }
         else if (funcstep == 3){
             _height = Number(event.message.text);
-            console.log(_height);
             event.reply("最後請您請輸入您的體重(公斤)");
             funcstep = 4;
         }
         else if (funcstep == 4){
             _weight = Number(event.message.text);
-            console.log(_weight);
             bmr_result = (10 * _weight) + (6.25 * _height) - (5 * _age);// + _sex;
-            //console.log(bmr_result);
+            console.log(bmr_result);
             var msg = {
                 "type": "template",
                 "template": {
@@ -187,6 +183,10 @@ bot.on('message',function(event){
             funccode = "home";
             funcstep = 0;
         }
+    }
+    else if(event.message.type = 'text' && event.message.text == "fuckreset"){
+        funccode = "home";funcstep = 0;
+        event.reply("done.");
     }
     
 });
