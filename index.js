@@ -131,11 +131,6 @@ bot.on('message',function(event){
             }
         });
         //=======================
-        // event.reply(msg).then(function(data){
-        //     colsole.log(msg);
-        // }).catch(function(error){
-        //     console.log('error');   //若有錯誤，catch下來後註記在log中
-        // });
     }
     else if(event.message.type = 'text' && funccode == "BMR"){
         if (funcstep == 1){
@@ -184,8 +179,17 @@ bot.on('message',function(event){
                 console.log("ERROR"+error);
             });
                 //"您的基礎代謝率是"+String(bmr_result)
-            funccode = "home";
-            funcstep = 0;
+            //funccode = "home";
+            funcstep = 5;
+        }
+        else if (funcstep == 5){
+            if (event.message.type == "message" && event.message.text == "好R"){
+                event.reply("您的TDEE是"+(bmr_result - _sex)).then(function(data){
+                    console.log(bmr_result - _sex);
+                });
+
+                
+            }
         }
     }
     
