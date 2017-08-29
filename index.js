@@ -180,9 +180,9 @@ bot.on('message',function(event){
             } 
             event.reply(msg).then(function(data){
                 console.log(msg);
-            }.catch(function(error){
+            }).catch(function(error){
                 console.log(error);
-            }));
+            });
                 //"您的基礎代謝率是"+String(bmr_result)
             funccode = "home";
             funcstep = 0;
