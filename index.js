@@ -161,8 +161,7 @@ bot.on('message',function(event){
             funccode = "home";
         }
         console.log("out funcstep = " + funcstep);    
-        console.log("bmrcount.bmrcount.funcstep = " + bmrcount.bmrcount.funcstep);
-    }
+        }
     
 });
 
