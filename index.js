@@ -132,7 +132,7 @@ bot.on('message',function(event){
         });
         //=======================
     }
-    require('./tdee.js');
+    include('./tdee.js');
     
 });
 
