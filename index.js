@@ -8,6 +8,7 @@ var funcstep = 0;   //自定義參數：功能步驟代號
 
 var stopwords=[];
 var fs = require("fs");
+
 function readLines(input, func){
     var remaining = "";
     input.on("data", function(data){
@@ -104,13 +105,15 @@ bot.on('message',function(event){
                 for (j=0;j<stopwords.length;j++){
                     if(_result[i] == stopwords[j]){
                         _result.splice(i,1);
+                        //splice用來將陣列中的元素去除，並將去除後空下來的內容予以補位
+                        //splice(清除元素的索引, 清除幾項元素)
                     }
                 }
             }
             //==========================================================
             console.log(_result.join("/"));
             
-            var BMR = ["BMR","基礎代謝率"];
+            var BMR = ["BMR","基礎代謝率", "bmr"];
             for (i = 0; i < _result.length; i++){
                 for(j = 0; j < BMR.length; j++){
                     if(_result[i] == BMR[j]){
@@ -132,7 +135,7 @@ bot.on('message',function(event){
     }
     else if(event.message.type = 'text' && funccode == "BMR"){
         if (funcstep == 1){
-            if (event.message.text = "男") var _sex = 5; //變數若未經var宣告即為全域變數
+            if (event.message.text = "男") _sex = 5; //變數若未經var宣告即為全域變數
             else _sex = -161;
             event.reply("好的，請輸入您的年齡(實歲)");
             console.log(_sex);
@@ -154,8 +157,30 @@ bot.on('message',function(event){
             _weight = Number(event.message.text);
             console.log(_weight);
             bmr_result = (10 * _weight) + (6.25 * _height) - (5 * _age);// + _sex;
-            console.log(bmr_result);
-            event.reply("您的基礎代謝率是"+String(bmr_result));
+            //console.log(bmr_result);
+
+            event.reply({
+                "type": "template",
+                "template": {
+                    "type": "button",
+                    "text": "您的基礎代謝率是"+String(bmr_result)+"\n您想要知道您的TDEE嗎？",
+                    "actions":[
+                        {
+                            "type": "message",
+                            "label": "好R",
+                            "text": "好R"
+                        },
+                        {
+                            "type": "message",
+                            "label": "什麼是TDEE?",
+                            "text": "什麼是TDEE?"
+                        }
+                    
+                    ]
+                }
+            } 
+                //"您的基礎代謝率是"+String(bmr_result)
+            );
             funccode = "home";
             funcstep = 0;
         }
