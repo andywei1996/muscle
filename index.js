@@ -6,7 +6,7 @@ dict2 = require('./scripts/data/dict_custom.js');
 var funccode = "home"; //自定義參數：功能代碼
 var funcstep = 0;   //自定義參數：功能步驟代號
 
-var bmrcount = require('./tdee.js');
+var tdeebmr = require('./tdee&bmr.js');
 
 var stopwords=[];
 var fs = require("fs");
@@ -155,7 +155,7 @@ bot.on('message',function(event){
         //=======================
     }
     else if(event.message.type = 'text' && funccode == "BMR"){
-        funcstep = bmrcount.bmrcount(event, funcstep);
+        funcstep = tdeebmr.compute(event, funcstep);
         if(funcstep == 0){
             funcstep = 0;
             funccode = "home";
