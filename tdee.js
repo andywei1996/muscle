@@ -1,27 +1,26 @@
 var funcstep;
 exports.bmrcount = function(event, funcstep){
-    if(funcstep == 1){
         switch (funcstep){
             case 1:
                 if (event.message.text = "男") _sex = 5; //變數若未經var宣告即為全域變數
                 else _sex = -161;
                 event.reply("好的，請輸入您的年齡(實歲)");
                 funcstep += 1;
-                console.log(funcstep);
+                // console.log(funcstep);
                 break;
 
             case 2:
                 _age = Number(event.message.text);
                 event.reply("好的，接下來請輸入您的身高(公分)");
                 funcstep += 1;
-                console.log(funcstep);
+                // console.log(funcstep);
                 break;
 
             case 3:
                 _height = Number(event.message.text);
                 event.reply("最後請您請輸入您的體重(公斤)");
                 funcstep += 1;
-                console.log(funcstep);
+                // console.log(funcstep);
                 break;
 
             case 4:
@@ -59,7 +58,7 @@ exports.bmrcount = function(event, funcstep){
                     console.log("ERROR"+error);
                 });
                 funcstep += 1;
-                console.log(funcstep);
+                // console.log(funcstep);
                 break;
 
             case 5:
@@ -74,10 +73,10 @@ exports.bmrcount = function(event, funcstep){
             default:
                 event.reply("程式錯誤，請重新操作。");
                 console.log("step Error.");
-                console.log(funcstep);
+                // console.log(funcstep);
         }
         
         //console.log(funcstep);
-    }
+    
     return funcstep;
 }
