@@ -5,7 +5,8 @@ exports.bmrcount = function(event, funcstep){
             if (event.message.text = "男") _sex = 5; //變數若未經var宣告即為全域變數
             else _sex = -161;
             event.reply("好的，請輸入您的年齡(實歲)");
-            funcstep = 2;
+            funcstep += 1;
+            return _sex, funcstep;
             break;
 
         case 2:
