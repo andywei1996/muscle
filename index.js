@@ -126,7 +126,27 @@ bot.on('message',function(event){
                         //計算BMR
                         funccode = "BMR";
                         funcstep = 1;
-                        event.reply("好的，那先請問您的性別？");
+                        var msg = {
+                            "type": "template",
+                            "altText": "好的，那先請問您的性別？\n（男／女)",
+                            "template": {
+                                "type": "confirm",
+                                "text": "好的，那先請問您的性別？",
+                                "actions": [
+                                    {
+                                      "type": "message",
+                                      "label": "男",
+                                      "text": "男"
+                                    },
+                                    {
+                                      "type": "message",
+                                      "label": "女",
+                                      "text": "女"
+                                    }
+                                ]
+                            }
+                        }
+                        event.reply(msg);                        
                     }
                     break;
                 }
