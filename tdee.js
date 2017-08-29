@@ -1,6 +1,5 @@
 var funcstep = 1;
-exports.bmrcount = function(event, init_funcstep){
-    if(init_funcstep == 1){
+exports.bmrcount = function(event, funcstep){
         switch (funcstep){
             case 1:
                 if (event.message.text = "男") _sex = 5; //變數若未經var宣告即為全域變數
@@ -99,7 +98,7 @@ exports.bmrcount = function(event, init_funcstep){
         }
         
         
-    }
+    
     console.log("inner funcstep = " + funcstep);
     return funcstep;
 }
