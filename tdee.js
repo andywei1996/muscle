@@ -1,3 +1,4 @@
+var funcstep = 1;
 exports.bmrcount = function(event){
 
     switch (funcstep){
