@@ -81,8 +81,10 @@ exports.bmrcount = function(event, init_funcstep){
                 if (event.message.text == "好R"){
                     event.reply("您的TDEE是"+(bmr_result - _sex)).then(function(data){
                         console.log(bmr_result - _sex);
-                    }); 
-                    
+                    });  
+                }
+                else if (event.message.text == "免了，謝謝"){
+                    event.reply("😊");
                 }
                 funcstep = 0;
                 console.log(funcstep);

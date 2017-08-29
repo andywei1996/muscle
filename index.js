@@ -156,13 +156,13 @@ bot.on('message',function(event){
     }
     else if(event.message.type = 'text' && funccode == "BMR"){
         bmrcount.bmrcount(event, funcstep);
-        console.log("out funcstep = " + funcstep);        
-        if(bmrcount.bmrcount() == 0){
+        if(bmrcount.bmrcount.funcstep == 0){
             funcstep = 0;
             funccode = "home";
             
         }
-
+        console.log("out funcstep = " + funcstep);        
+        
         
         // if (funcstep == 1){
         //     if (event.message.text = "男") _sex = 5; //變數若未經var宣告即為全域變數
