@@ -162,7 +162,7 @@ bot.on('message',function(event){
                 "type": "template",
                 "altText": "BMR result replying template.",                
                 "template": {
-                    "type": "button",
+                    "type": "buttons",
                     "text": "您的基礎代謝率是"+String(bmr_result)+"\n您想要知道您的TDEE嗎？",
                     "actions":[
                         {
