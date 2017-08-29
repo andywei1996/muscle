@@ -157,7 +157,8 @@ bot.on('message',function(event){
                     if(_result[i] == QUESTION[j]){
                         //詢問模式
                         funccode = "askQuestion";
-                        console.log(funccode);
+                        console.log("now funccode :"+funccode);
+                        _result.splice(i,1);
                         askQuestion(event,_result);
                     }
                     break;
