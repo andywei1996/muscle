@@ -132,7 +132,7 @@ bot.on('message',function(event){
         });
         //=======================
     }
-    include('./tdee.js');
+    var BMRcoupute = require('./tdee.js');
     
 });
 
