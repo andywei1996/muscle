@@ -150,9 +150,10 @@ bot.on('message',function(event){
                                 ]
                             }
                         }
-                        event.reply(msg);                        
+                        event.reply(msg);  
+                        break;                      
                     }
-                    break;
+                    
                 }
                 for(j = 0; j < QUESTION.length; j++){
                     if(_result[i] == QUESTION[j]){
@@ -166,8 +167,9 @@ bot.on('message',function(event){
                                 funccode = "home";
                             }
                         }
+                        break;
                     }
-                    break;
+                    
                 }
             }
             // for (i = 0; i < _result.length; i++){
