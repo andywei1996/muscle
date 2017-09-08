@@ -78,7 +78,7 @@ exports.compute = function(event, funcstep){
 
             case 5:
                 if (event.message.text == "好啊"){
-                    event.reply("好的，我還需要知道您的運動頻率是如何。");
+                    event.reply("好的，我還需要知道您的運動頻率是如何。\n請問您一週運動的天數約為幾天？");
                     event.reply("請問您一週運動的天數約為幾天？");
                     funcstep += 1;
                     break;
