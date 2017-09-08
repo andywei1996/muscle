@@ -101,7 +101,8 @@ exports.compute = function(event, funcstep){
                 break; 
 
             case 6:
-                switch (event.message.text){
+                
+                switch (Number(event.message.text)){
                     case 0:
                         _traindeg = 1.2;
                         break;
