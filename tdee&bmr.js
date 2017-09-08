@@ -39,24 +39,24 @@ exports.compute = function(event, funcstep){
                     event.reply("不好意思，請輸入正確的數字！");
                 }
                 else{
-                    bmr_result = (10 * _weight) + (6.25 * _height) - (5 * _age);// + _sex;
+                    bmr_result = (10 * _weight) + (6.25 * _height) - (5 * _age) + _sex;
                     console.log(bmr_result);
                     var msg = {
                         "type": "template",
                         "altText": "您的基礎代謝率是"+String(bmr_result) ,                
                         "template": {
                             "type": "buttons",
-                            "text": "您的基礎代謝率是"+String(bmr_result)+"\n您想要知道您的TDEE嗎？",
+                            "text": "您的基礎代謝率是"+String(bmr_result)+"\n您想要知道您的每日總消耗熱量嗎？",
                             "actions":[
                                 {
                                     "type": "message",
-                                    "label": "好R",
-                                    "text": "好R"
+                                    "label": "好啊",
+                                    "text": "好啊"
                                 },
                                 {
                                     "type": "message",
-                                    "label": "什麼是TDEE?",
-                                    "text": "什麼是TDEE?"
+                                    "label": "什麼是每日總消耗熱量?",
+                                    "text": "什麼是每日總消耗熱量?"
                                 },
                                 {
                                     "type": "message",
@@ -77,8 +77,15 @@ exports.compute = function(event, funcstep){
                 break;
 
             case 5:
-                if (event.message.text == "好R"){
-                    event.reply("您的TDEE是"+(bmr_result - _sex)).then(function(data){
+                if (event.message.text == "好啊"){
+                    event.reply("好的，我還需要知道您的運動頻率是如何。");
+                    event.reply("請問您一週運動的天數約為幾天？");
+                    funcstep += 1;
+                    break;
+            
+                
+                
+                    event.reply("您的是"+(bmr_result - _sex)).then(function(data){
                         console.log(bmr_result - _sex);
                     });  
                 }
@@ -91,7 +98,62 @@ exports.compute = function(event, funcstep){
                 funcstep = 0;
                 return funcstep;
                 console.log(funcstep);
-                break;  
+                break; 
+
+            case 6:
+                switch (event.message.text){
+                    case 0:
+                        _traindeg = 1.2;
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        _traindeg = 1.375;
+                        break;
+                    case 4:
+                    case 5:
+                        _traindeg = 1.55;
+                        break;
+                    case 6:
+                    case 7:
+                        _traindeg = 1.725;
+                        msg = {
+                            "type": "template",
+                            "altText": "那麼您每天的運動頻率有到2次以上嗎？",
+                            "template": {
+                                "type": "confirm",
+                                "text": "那麼您每天的運動頻率有到2次以上嗎？",
+                                "actions": [
+                                    {
+                                      "type": "message",
+                                      "label": "有",
+                                      "text": "有"
+                                    },
+                                    {
+                                      "type": "message",
+                                      "label": "沒有",
+                                      "text": "沒有"
+                                    }
+                                ]
+                            }
+                          }
+                        event.reply(msg);
+                        break;
+                    default:
+                          event.reply("輸入錯誤，請重新輸入！");
+                          funcstep -= 1;
+                }
+                funcstep += 1;
+                break;
+            case 7:
+                if (event.message.text == "有"){
+                    _traindeg = 1.9;
+                }
+                event.reply("您的每日總消耗熱量是"+ String(bmr_result * _traindeg));
+                funcstep = 0;
+                return funcstep;
+            
+                break;
             default:
                 event.reply("程式錯誤，請重新操作。");
                 console.log("step Error.");
@@ -109,8 +171,9 @@ exports.compute = function(event, funcstep){
 exports.whatistdee = function(event){
     event.reply(
         "TDEE(Total Daily Energy Expenditure)\n"
-        +"是每個人所需要維持自身體重所需要的每日熱量。\n"
+        +"代表的是「每日總消耗熱量」，\n"
         +"體重越重，每日需要的熱量就越高。\n"
-        +"還有非常多的影響因素，例如每週運動量，年齡等等"         
+        +"與BMR的差異在於BMR是在身體靜臥不動的條件下計算\n"
+        +"而TDEE則是包含每日的運動量在其中。"         
     );
 }
