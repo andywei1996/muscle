@@ -46,7 +46,7 @@ exports.compute = function(event, funcstep){
                         "altText": "您的基礎代謝率是"+String(bmr_result) ,                
                         "template": {
                             "type": "buttons",
-                            "text": "您的基礎代謝率是"+String(bmr_result)+"\n您想要知道您的每日總消耗熱量嗎？",
+                            "text": "您的基礎代謝率是"+String(bmr_result)+"\n您想要知道您的每日總消耗熱量(TDEE)嗎？",
                             "actions":[
                                 {
                                     "type": "message",
@@ -55,8 +55,8 @@ exports.compute = function(event, funcstep){
                                 },
                                 {
                                     "type": "message",
-                                    "label": "什麼是每日總消耗熱量?",
-                                    "text": "什麼是每日總消耗熱量?"
+                                    "label": "什麼是TDEE?",
+                                    "text": "什麼是TDEE?"
                                 },
                                 {
                                     "type": "message",
@@ -81,7 +81,6 @@ exports.compute = function(event, funcstep){
                     event.reply("好的，我還需要知道您的運動頻率是如何。\n請問您一週運動的天數約為幾天？");
                     funcstep += 1;
                     break;
-         
                 }
                 else if (event.message.text == "免了，謝謝"){
                     event.reply("😊");

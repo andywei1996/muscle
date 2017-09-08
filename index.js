@@ -109,6 +109,7 @@ bot.on('message',function(event){
 		node_jieba_parsing([dict1, dict2], event.message.text, function (_result) {
             //先去除停止詞（停止詞庫：./scripts/data/stopwords.txt）========
             for (i = 0; i < _result.length ; i++){
+                _result[i].toUpperCase();
                 for (j=0;j < stopwords.length;j++){
                     if(_result[i] == stopwords[j]){
                         _result.splice(i,1);
