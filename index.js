@@ -247,6 +247,7 @@ bot.on('message',function(event){
                                     }
                                 }
                             }
+                            _result.join('-');
                             console.log("no when");
                         }
                         
