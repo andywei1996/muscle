@@ -122,7 +122,7 @@ bot.on('message',function(event){
             console.log(_result.join("/"));
 
             var WHATIS = ["啥","什麼","?","？"]
-            var WHEN = ["什麼時候","時候","啥時","該","應該","?"]
+            var WHEN = ["什麼時候","時候","啥時","該","應該"]
             var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
 
             func : {
@@ -217,8 +217,8 @@ bot.on('message',function(event){
                             
                             _result.splice(i,1);
                             WHEN.splice(j,1);
-                            for(k = 0; k<_result.length; k++){
-                                for(l = 0; l<WHEN.length; l++){
+                            for(k = 0; k< _result.length; k++){
+                                for(l = 0; l< WHEN.length; l++){
                                     if(_result[k]==WHEN[l]){
                                         console.log("WHEN");
                                         funccode = "askQuestion";
