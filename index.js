@@ -207,14 +207,19 @@ bot.on('message',function(event){
                                     funccode = "home";  
                                     break;  
                                 }
-                            }  
+                            }
+                            for(k = 0; k<_result.length; k++){
+                                if(_result[k] == "吃"){
+                                    
+                                }
+                            }
                         }
                     }
 
                     //詢問模式：什麼時候該...?
                     for(j = 0; j< WHEN.length; j++){
                         if(_result[i] == WHEN[j]){
-                            _result.splice(i,1);
+                            //_result.splice(i,1);
                             //WHEN.splice(j,1);
                             for(k = 0; k< _result.length; k++){
                                 for(l = 0; l< WHEN.length; l++){
