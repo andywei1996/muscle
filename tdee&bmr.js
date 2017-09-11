@@ -161,13 +161,3 @@ exports.compute = function(event, funcstep){
     console.log("inner funcstep = " + funcstep);
     return funcstep;
 }
-
-exports.whatistdee = function(event){
-    event.reply(
-        "TDEE(Total Daily Energy Expenditure)\n"
-        +"代表的是「每日總消耗熱量」，\n"
-        +"體重越重，每日需要的熱量就越高。\n"
-        +"與BMR的差異在於BMR是在身體靜臥不動的條件下計算\n"
-        +"而TDEE則是包含每日的運動量在其中。"         
-    );
-}

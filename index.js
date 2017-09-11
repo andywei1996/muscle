@@ -7,6 +7,7 @@ var funccode = "home"; //自定義參數：功能代碼
 var funcstep = 0;   //自定義參數：功能步驟代號
 
 var tdeebmr = require('./tdee&bmr.js');
+var qma = require('./qma.js');
 
 var stopwords=[];
 var fs = require("fs");
@@ -63,8 +64,6 @@ var server = app.listen(process.env.PORT || 8080,function(){
     console.log("App now running on port", port);
 
 });
-
-//回復一模一樣的訊息
 bot.on('message',function(event){
     //收到通關密語後，建立一個選單讓使用者選擇想要使用的功能
     if(event.message.type == 'text' && event.message.text == "fuckreset"){
@@ -109,7 +108,7 @@ bot.on('message',function(event){
 		node_jieba_parsing([dict1, dict2], event.message.text, function (_result) {
             //先去除停止詞（停止詞庫：./scripts/data/stopwords.txt）========
             for (i = 0; i < _result.length ; i++){
-                _result[i] = _result[i].toUpperCase();
+                _result[i] = _result[i].toUpperCase(); //將輸入的英文轉置為大寫
                 for (j=0;j < stopwords.length;j++){
                     if(_result[i] == stopwords[j]){
                         _result.splice(i,1);
@@ -164,11 +163,19 @@ bot.on('message',function(event){
                         _result.splice(i,1);
                         for (k = 0; k < _result.length; k++){
                             if(_result[k]=="TDEE"||_result[k]=="tdee"){
-                                tdeebmr.whatistdee(event);
+                                qma.whatistdee(event);
                                 funccode = "home";
+                                break;
                             }
                         }
-                        break;
+                        for (k = 0; k < _result.length; k++){
+                            if(_result[k]=="吃"&&(_result[k]=="什麼"||_result[k]=="怎麼")){
+                                qma.howtoeat(event);
+                                funccode = "home";
+                                break;
+                            }
+                        }
+                        
                     }
                     
                 }
@@ -195,6 +202,12 @@ askQuestion = function(event,_result){
         if(_result[i]=="TDEE"||_result[i]=="tdee"){
             tdeebmr.whatistdee(event);
             funccode = "home";
+            break;
+        }
+        if(_result[i]=="TDEE"||_result[i]=="tdee"){
+            tdeebmr.whatistdee(event);
+            funccode = "home";
+            break;
         }
     }
 
