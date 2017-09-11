@@ -27,7 +27,7 @@ exports.whatisCarbohydrates = function(event){
 //簡單碳水化合物
 exports.whatisSimpleCarbohydrates = function(event){
     event.reply(
-        "簡單碳水就是單純的葡萄糖、果糖、蔗糖及乳糖及其它糖類等等。\n"
+        "簡單碳水化合物就是單純的葡萄糖、果糖、蔗糖及乳糖及其它糖類等等。\n"
         +"因為經過加工以及精製，其纖維質、維生素與礦物質都被去除，只剩下簡單的醣類，例如:白麵包、零食餅乾、糖果以及含有糖分的飲料。"
     );
 }
