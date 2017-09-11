@@ -238,7 +238,6 @@ bot.on('message',function(event){
                                                         break func;
                                                     }
                                                 }
-
                                                 qma.whentoEat(event);
                                                 funccode = "home";
                                                 break func;
@@ -248,13 +247,10 @@ bot.on('message',function(event){
                                 }
                             }
                         }
-                        console.log(_result.join('-'));
-                        console.log("no when");
                     }
+                    console.log(_result.join('-'));
+                    console.log("no when");
                 }
-                // for (i = 0; i < _result.length; i++){
-                    
-                // }
             }
         });
         //=======================
