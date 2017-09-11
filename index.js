@@ -121,7 +121,7 @@ bot.on('message',function(event){
         //==========================================================
             console.log(_result.join("/"));
 
-            var QUESTION = ["什","啥","什麼","?"]
+            var QUESTION = ["什","啥","什麼","?","？"]
             var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
 
             for (i = 0; i < _result.length; i++){
