@@ -223,7 +223,7 @@ bot.on('message',function(event){
                                         console.log("WHEN");
                                         funccode = "askQuestion";
                                         console.log("now funccode :"+funccode);
-                                        for(m = 0;m<_result.length;m++){
+                                        for(m = 0; m < _result.length; m++){
                                             if(_result[m]=="吃"){
                                                 _result.splice(m,1);
 
@@ -234,7 +234,7 @@ bot.on('message',function(event){
                                                         funccode = "home";
                                                         break func;
                                                     }
-                                                    else if(_result[n] == "前"){
+                                                    else if(_result[n] == "後"){
                                                         qma.eatafttrain(event);
                                                         funccode = "home";
                                                         break func;
