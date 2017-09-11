@@ -122,7 +122,7 @@ bot.on('message',function(event){
             console.log(_result.join("/"));
 
             var WHATIS = ["啥","什麼","?","？"]
-            var WHEN = ["什麼時候","時候","啥時","該","能夠","應該","可以"]
+            var WHEN = ["什麼時候","時候","啥時","該","能夠","應該","前","後","之前","之後"]
             var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
 
             func : {
@@ -208,49 +208,35 @@ bot.on('message',function(event){
                                     break;  
                                 }
                             }
-                            for(k = 0; k<_result.length; k++){
-                                if(_result[k] == "吃"){
-                                    
-                                }
-                            }
                         }
                     }
 
                     //詢問模式：什麼時候該...?
                     for(j = 0; j< WHEN.length; j++){
-                        if(_result[i] == WHEN[j]){
-                            //_result.splice(i,1);
-                            //WHEN.splice(j,1);
-                            for(k = 0; k< _result.length; k++){
-                                for(l = 0; l< WHEN.length; l++){
-                                    if(_result[k] == WHEN[l]){
-                                        console.log("WHEN");
-                                        funccode = "askQuestion";
-                                        console.log("now funccode :"+funccode);
-                                        for(m = 0; m < _result.length; m++){
-                                            if(_result[m] == "吃"){
-                                                _result.splice(m,1);
-                                                //詢問鍛鍊前飲食或鍛鍊後飲食
-                                                for(n = 0; n< _result.length; n++){
-                                                    if(_result[n] == "前"){
-                                                        console.log("前");
-                                                        qma.eatbftrain(event);
-                                                        funccode = "home";
-                                                        break func;
-                                                    }
-                                                    else if(_result[n] == "後"){
-                                                        console.log("後");
-                                                        qma.eatafttrain(event);
-                                                        funccode = "home";
-                                                        break func;
-                                                    }
-                                                }
-                                                qma.whentoEat(event);
-                                                funccode = "home";
-                                                break func;
-                                            }
+                        if(_result[i] == WHEN[j]){  
+                            console.log("WHEN");
+                            funccode = "askQuestion";
+                            console.log("now funccode :"+funccode);
+                            for(m = 0; m < _result.length; m++){
+                                if(_result[m] == "吃"){
+                                    //詢問鍛鍊前飲食或鍛鍊後飲食
+                                    for(n = 0; n< _result.length; n++){
+                                        if(_result[n] == "前"){
+                                            console.log("前");
+                                            qma.eatbftrain(event);
+                                            funccode = "home";
+                                            break func;
+                                        }
+                                        else if(_result[n] == "後"){
+                                            console.log("後");
+                                            qma.eatafttrain(event);
+                                            funccode = "home";
+                                            break func;
                                         }
                                     }
+                                    qma.whentoEat(event);
+                                    funccode = "home";
+                                    break func;        
                                 }
                             }
                         }
