@@ -169,10 +169,30 @@ bot.on('message',function(event){
                                 funccode = "home";
                                 break;
                             }
-                            else if(_result[k]=="蛋白質"||_result[k]=="吃什麼"){
+                            else if(_result[k]=="蛋白質"){
                                 qma.whatisprotein(event);
                                 funccode = "home";
                                 break;
+                            }
+                            else if(_result[k]=="碳水化合物"){
+                                qma.whatisCarbohydrates(event);
+                                funccode = "home";  
+                                break;  
+                            }
+                            else if(_result[k]=="簡單碳水化合物"){
+                                qma.whatisSimpleCarbohydrates(event);
+                                funccode = "home";  
+                                break;  
+                            }
+                            else if(_result[k]=="複雜碳水化合物"){
+                                qma.whatisComplexCarbohydrates(event);
+                                funccode = "home";  
+                                break;  
+                            }
+                            else if(_result[k]=="GI"||_result[k]=="升糖指數"){
+                                qma.whatisGI(event);
+                                funccode = "home";  
+                                break;  
                             }
                             else if(_result[k]=="吃"||_result[k]=="吃什麼"){
                                 qma.howtoeat(event);
