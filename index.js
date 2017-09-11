@@ -121,7 +121,7 @@ bot.on('message',function(event){
         //==========================================================
             console.log(_result.join("/"));
 
-            var QUESTION = ["什","啥","什麼","?","？"]
+            var WHATIS = ["啥","什麼","?","？"]
             var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
 
             for (i = 0; i < _result.length; i++){
@@ -155,9 +155,11 @@ bot.on('message',function(event){
                     }
                     
                 }
-                for(j = 0; j < QUESTION.length; j++){
-                    if(_result[i] == QUESTION[j]){
-                        //詢問模式
+
+                //詢問模式：什麼是...?
+                for(j = 0; j < WHATIS.length; j++){
+                    if(_result[i] == WHATIS[j]){
+                        //程式切換成詢問模式
                         funccode = "askQuestion";
                         console.log("now funccode :"+funccode);
                         _result.splice(i,1);
@@ -167,15 +169,18 @@ bot.on('message',function(event){
                                 funccode = "home";
                                 break;
                             }
+                            else if(_result[k]=="蛋白質"||_result[k]=="吃什麼"){
+                                qma.whatisprotein(event);
+                                funccode = "home";
+                                break;
+                            }
                             else if(_result[k]=="吃"||_result[k]=="吃什麼"){
                                 qma.howtoeat(event);
                                 funccode = "home";  
                                 break;  
                             }
-                        }
-                        
+                        }  
                     }
-                    
                 }
             }
             // for (i = 0; i < _result.length; i++){
