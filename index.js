@@ -122,7 +122,7 @@ bot.on('message',function(event){
             console.log(_result.join("/"));
 
             var WHATIS = ["啥","什麼","?","？"]
-            var WHEN = ["什麼時候","時候","啥時","該","應該"]
+            var WHEN = ["什麼時候","時候","啥時","該","能夠","應該","可以"]
             var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
 
             func : {
