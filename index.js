@@ -214,12 +214,13 @@ bot.on('message',function(event){
                     //詢問模式：什麼時候該...?
                     for(j = 0; j< WHEN.length; j++){
                         if(_result[i] == WHEN[j]){
-                            console.log("WHEN");
+                            
                             _result.splice(i,1);
                             WHEN.splice(j,1);
                             for(i = 0; i<_result.length; i++){
                                 for(j = 0; j<WHEN.length; j++){
                                     if(_result[i]==WHEN[j]){
+                                        console.log("WHEN");
                                         funccode = "askQuestion";
                                         console.log("now funccode :"+funccode);
                                         if(_result[i]=="吃"){
@@ -246,7 +247,9 @@ bot.on('message',function(event){
                                     }
                                 }
                             }
+                            console.log("no when");
                         }
+                        
                     }
                 }
                 // for (i = 0; i < _result.length; i++){
