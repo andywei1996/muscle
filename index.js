@@ -122,90 +122,136 @@ bot.on('message',function(event){
             console.log(_result.join("/"));
 
             var WHATIS = ["啥","什麼","?","？"]
+            var WHEN = ["什麼時候","時候","啥時","該","應該","?"]
             var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
 
-            for (i = 0; i < _result.length; i++){
-                for(j = 0; j < BMR.length; j++){
-                    if(_result[i] == BMR[j]){
-                        //計算BMR
-                        funccode = "BMR";
-                        funcstep = 1;
-                        var msg = {
-                            "type": "template",
-                            "altText": "好的，那先請問您的性別？\n（男／女)",
-                            "template": {
-                                "type": "confirm",
-                                "text": "好的，那先請問您的性別？",
-                                "actions": [
-                                    {
-                                        "type": "message",
-                                        "label": "男",
-                                        "text": "男"
-                                    },
-                                    {
-                                        "type": "message",
-                                        "label": "女",
-                                        "text": "女"
+            func : {
+                for (i = 0; i < _result.length; i++){
+                    for(j = 0; j < BMR.length; j++){
+                        if(_result[i] == BMR[j]){
+                            //計算BMR
+                            funccode = "BMR";
+                            funcstep = 1;
+                            var msg = {
+                                "type": "template",
+                                "altText": "好的，那先請問您的性別？\n（男／女)",
+                                "template": {
+                                    "type": "confirm",
+                                    "text": "好的，那先請問您的性別？",
+                                    "actions": [
+                                        {
+                                            "type": "message",
+                                            "label": "男",
+                                            "text": "男"
+                                        },
+                                        {
+                                            "type": "message",
+                                            "label": "女",
+                                            "text": "女"
+                                        }
+                                    ]
+                                }
+                            }
+                            event.reply(msg);  
+                            break;                      
+                        }
+                        
+                    }
+
+                    //詢問模式：什麼是...?
+                    for(j = 0; j < WHATIS.length; j++){
+                        if(_result[i] == WHATIS[j]){
+                            //程式切換成詢問模式
+                            funccode = "askQuestion";
+                            console.log("now funccode :"+funccode);
+                            _result.splice(i,1);
+                            for (k = 0; k < _result.length; k++){
+                                if(_result[k]=="TDEE"||_result[k]=="tdee"){
+                                    qma.whatistdee(event);
+                                    funccode = "home";
+                                    break;
+                                }
+                                else if(_result[k]=="蛋白質"){
+                                    qma.whatisprotein(event);
+                                    funccode = "home";
+                                    break;
+                                }
+                                else if(_result[k]=="碳水化合物"){
+                                    qma.whatisCarbohydrates(event);
+                                    funccode = "home";  
+                                    break;  
+                                }
+                                else if(_result[k]=="簡單碳水化合物"||_result[k]=="低GI"){
+                                    qma.whatisSimpleCarbohydrates(event);
+                                    funccode = "home";  
+                                    break;  
+                                }
+                                else if(_result[k]=="複雜碳水化合物"||_result[k]=="高GI"){
+                                    qma.whatisComplexCarbohydrates(event);
+                                    funccode = "home";  
+                                    break;  
+                                }
+                                else if(_result[k]=="GI"||_result[k]=="升糖指數"){
+                                    qma.whatisGI(event);
+                                    funccode = "home";  
+                                    break;  
+                                }
+                                else if(_result[k]=="脂肪"){
+                                    qma.whatisFat(event);
+                                    funccode = "home";  
+                                    break;  
+                                }
+
+                                else if(_result[k]=="吃"||_result[k]=="吃什麼"){
+                                    qma.howtoeat(event);
+                                    funccode = "home";  
+                                    break;  
+                                }
+
+                            }  
+                        }
+                    }
+                    //詢問模式：什麼時候該...?
+                    for(j = 0; j< WHEN.length; j++){
+                        if(_result[i] == WHEN[j]){
+                            _result.splice(i,1);
+                            WHEN.splice(j,1);
+                            for(i = 0; i<_result.length; i++){
+                                for(j = 0; j<WHEN.length; j++){
+                                    if(_result[i]==WHEN[j]){
+                                        funccode = "askQuestion";
+                                        console.log("now funccode :"+funccode);
+                                        if(_result[i]=="吃"){
+                                            _result.splice(i,1);
+
+                                            //詢問鍛鍊前飲食或鍛鍊後飲食
+                                            for(i = 0; i< _result.length; i++){
+                                                if(_result[i] == "前"){
+                                                    qma.eatbftrain(event);
+                                                    funccode = "home";
+                                                    break func;
+                                                }
+                                                else if(_result[i] == "前"){
+                                                    qma.eatafttrain(event);
+                                                    funccode = "home";
+                                                    break func;
+                                                }
+                                            }
+                                            
+                                            qma.whentoEat(event);
+                                            funccode = "home";
+                                            break func;
+                                        }
                                     }
-                                ]
+                                }
                             }
                         }
-                        event.reply(msg);  
-                        break;                      
                     }
+                }
+                // for (i = 0; i < _result.length; i++){
                     
-                }
-
-                //詢問模式：什麼是...?
-                for(j = 0; j < WHATIS.length; j++){
-                    if(_result[i] == WHATIS[j]){
-                        //程式切換成詢問模式
-                        funccode = "askQuestion";
-                        console.log("now funccode :"+funccode);
-                        _result.splice(i,1);
-                        for (k = 0; k < _result.length; k++){
-                            if(_result[k]=="TDEE"||_result[k]=="tdee"){
-                                qma.whatistdee(event);
-                                funccode = "home";
-                                break;
-                            }
-                            else if(_result[k]=="蛋白質"){
-                                qma.whatisprotein(event);
-                                funccode = "home";
-                                break;
-                            }
-                            else if(_result[k]=="碳水化合物"){
-                                qma.whatisCarbohydrates(event);
-                                funccode = "home";  
-                                break;  
-                            }
-                            else if(_result[k]=="簡單碳水化合物"){
-                                qma.whatisSimpleCarbohydrates(event);
-                                funccode = "home";  
-                                break;  
-                            }
-                            else if(_result[k]=="複雜碳水化合物"){
-                                qma.whatisComplexCarbohydrates(event);
-                                funccode = "home";  
-                                break;  
-                            }
-                            else if(_result[k]=="GI"||_result[k]=="升糖指數"){
-                                qma.whatisGI(event);
-                                funccode = "home";  
-                                break;  
-                            }
-                            else if(_result[k]=="吃"||_result[k]=="吃什麼"){
-                                qma.howtoeat(event);
-                                funccode = "home";  
-                                break;  
-                            }
-                        }  
-                    }
-                }
+                // }
             }
-            // for (i = 0; i < _result.length; i++){
-                
-            // }
         });
         //=======================
     }

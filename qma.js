@@ -7,6 +7,7 @@ exports.whatistdee = function(event){
         +"而TDEE則是包含每日的運動量在其中。"         
     );
 }
+//蛋白質
 exports.whatisprotein = function(event){
     event.reply(
         "蛋白質是身體構造的必要組成成分。\n"
@@ -16,24 +17,28 @@ exports.whatisprotein = function(event){
         +"也可以使用乳清蛋白、脫脂牛奶或是低脂肪的奶酪。"         
     );
 }
+//碳水化合物
 exports.whatisCarbohydrates = function(event){
     event.reply(
         "碳水化合物是身體主要的能源來源，主要分為簡單碳水化合物和複合碳水化合物。\n"
         +"不同的碳水化合物對血糖的影響都是不一樣的，通常會使用GI值去進行評估，1公克含有4大卡熱量。"         
     );
 }
+//簡單碳水化合物
 exports.whatisSimpleCarbohydrates = function(event){
     event.reply(
         "簡單碳水就是單純的葡萄糖、果糖、蔗糖及乳糖及其它糖類等等。\n"
         +"因為經過加工以及精製，其纖維質、維生素與礦物質都被去除，只剩下簡單的醣類，例如:白麵包、零食餅乾、糖果以及含有糖分的飲料。"
     );
 }
+//複雜碳水化合物
 exports.whatisComplexCarbohydrates = function(event){
     event.reply(
         "複合碳水化合物則含有需要更多時間消化的澱粉，以及難以消化的膳食纖維等等。\n"
         +"可以減少血糖的驟升與驟降。如燕麥片、全麥麵包、小麥麵食、番薯…等。"
     );
 }
+//升糖指數GI
 exports.whatisGI = function(event){
     event.reply(
         "GI(Glycaemic index) 升糖指數，用來評估碳水化合物影響血糖濃度的指數。\n"
@@ -41,10 +46,39 @@ exports.whatisGI = function(event){
         +"但是不論GI高低，都是有熱量的，不能夠認為低GI的食物大量食用不會使體重上升！"
     );
 }
+//脂肪
+exports.whatisFat = function(event){
+    event.reply(
+        "脂肪是不可少的，健康的脂肪食物更是有許多功用，像是大腦和心臟活動、激素調節和能量來源，都是靠脂肪來供應。\n"
+        +"主要分成在肉類以及動物副產品如奶油以及豬油中的飽和脂肪酸，以及在油質魚、蔬菜和堅果油中的不飽和脂肪酸，後者擁有較高的營養價值，1公克含有9大卡熱量。"
+    );
+}
 
 
+//WHEN...?
+//何時吃
+exports.whentoEat = function(event){
+    event.reply(
+        "不論是健身前還是健身後都應該補充營養，\n"
+        +"如此一來身體才有足夠的能源去訓練以及修復肌肉。"
+    );
+}
+//鍛鍊前吃
+exports.eatbftrain = function(event){
+    event.reply(
+        "應該讓身體有時間消化以及把食物轉換成能量，如果時間足夠讓身體有兩個小時去消化，那是最讚的。\n"
+        +"但如果時間不多的話，可以選高GI的食物，比較容易消化以及吸收。"
+    );
+}
+//鍛鍊後吃
+exports.eatafttrain = function(event){
+    event.reply(
+        "健身後需要補充足夠的蛋白質以及碳水化合物，以補充身體在訓練過程中的損耗。\n"
+        +"如果能在健身後半小時內補充的話是最好，因為重量訓練後身體的各項激素水平都處於高峰，正是攝取營養來合成肌肉的好時機。"
+    );
+}
 
-//HOW
+//HOW to...?
 exports.howtoeat = function(event){
     event.reply(
         "健身需要的是營養均衡，所以主要的營養素都要均衡的攝取。\n"
