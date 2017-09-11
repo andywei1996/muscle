@@ -223,26 +223,28 @@ bot.on('message',function(event){
                                         console.log("WHEN");
                                         funccode = "askQuestion";
                                         console.log("now funccode :"+funccode);
-                                        if(_result[i]=="吃"){
-                                            _result.splice(i,1);
+                                        for(i = 0;i<_result.length;i++){
+                                            if(_result[i]=="吃"){
+                                                _result.splice(i,1);
 
-                                            //詢問鍛鍊前飲食或鍛鍊後飲食
-                                            for(i = 0; i< _result.length; i++){
-                                                if(_result[i] == "前"){
-                                                    qma.eatbftrain(event);
-                                                    funccode = "home";
-                                                    break func;
+                                                //詢問鍛鍊前飲食或鍛鍊後飲食
+                                                for(i = 0; i< _result.length; i++){
+                                                    if(_result[i] == "前"){
+                                                        qma.eatbftrain(event);
+                                                        funccode = "home";
+                                                        break func;
+                                                    }
+                                                    else if(_result[i] == "前"){
+                                                        qma.eatafttrain(event);
+                                                        funccode = "home";
+                                                        break func;
+                                                    }
                                                 }
-                                                else if(_result[i] == "前"){
-                                                    qma.eatafttrain(event);
-                                                    funccode = "home";
-                                                    break func;
-                                                }
+
+                                                qma.whentoEat(event);
+                                                funccode = "home";
+                                                break func;
                                             }
-
-                                            qma.whentoEat(event);
-                                            funccode = "home";
-                                            break func;
                                         }
                                     }
                                 }
