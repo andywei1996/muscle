@@ -169,9 +169,13 @@ bot.on('message',function(event){
                             }
                         }
                         for (k = 0; k < _result.length; k++){
-                            if(_result[k]=="吃"&&(_result[k]=="什麼"||_result[k]=="怎麼")){
-                                qma.howtoeat(event);
-                                funccode = "home";
+                            if(_result[k]=="吃"){
+                                for (l = 0; l < _result.length; l++){
+                                    if(_result[l]=="什麼"||_result[l]=="怎麼"){
+                                        qma.howtoeat(event);
+                                        funccode = "home";
+                                    }
+                                }
                                 break;
                             }
                         }
