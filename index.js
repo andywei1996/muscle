@@ -167,7 +167,7 @@ bot.on('message',function(event){
                                 funccode = "home";
                                 break;
                             }
-                            else if(_result[k]=="吃"){
+                            else if(_result[k]=="吃"||_result[k]=="吃什麼"){
                                 qma.howtoeat(event);
                                 funccode = "home";  
                                 break;  
