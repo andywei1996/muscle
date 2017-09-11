@@ -167,15 +167,11 @@ bot.on('message',function(event){
                                 funccode = "home";
                                 break;
                             }
-                        }
-                        for (k = 0; k < _result.length; k++){
-                            if(_result[k]=="吃"){
+                            else if(_result[k]=="吃"){
                                 qma.howtoeat(event);
                                 funccode = "home";  
                                 break;  
                             }
-                            
-                            
                         }
                         
                     }
