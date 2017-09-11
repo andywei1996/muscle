@@ -207,13 +207,14 @@ bot.on('message',function(event){
                                     funccode = "home";  
                                     break;  
                                 }
-
                             }  
                         }
                     }
+                    console.log("No whatis");
                     //詢問模式：什麼時候該...?
                     for(j = 0; j< WHEN.length; j++){
                         if(_result[i] == WHEN[j]){
+                            console.log("WHEN");
                             _result.splice(i,1);
                             WHEN.splice(j,1);
                             for(i = 0; i<_result.length; i++){
@@ -237,7 +238,7 @@ bot.on('message',function(event){
                                                     break func;
                                                 }
                                             }
-                                            
+
                                             qma.whentoEat(event);
                                             funccode = "home";
                                             break func;
