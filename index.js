@@ -228,11 +228,13 @@ bot.on('message',function(event){
                                                 //詢問鍛鍊前飲食或鍛鍊後飲食
                                                 for(n = 0; n< _result.length; n++){
                                                     if(_result[n] == "前"){
+                                                        console.log("前");
                                                         qma.eatbftrain(event);
                                                         funccode = "home";
                                                         break func;
                                                     }
                                                     else if(_result[n] == "後"){
+                                                        console.log("後");
                                                         qma.eatafttrain(event);
                                                         funccode = "home";
                                                         break func;
@@ -248,8 +250,6 @@ bot.on('message',function(event){
                             }
                         }
                     }
-                    console.log(_result.join('-'));
-                    console.log("no when");
                 }
             }
         });
