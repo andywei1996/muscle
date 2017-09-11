@@ -217,24 +217,24 @@ bot.on('message',function(event){
                             
                             _result.splice(i,1);
                             WHEN.splice(j,1);
-                            for(i = 0; i<_result.length; i++){
-                                for(j = 0; j<WHEN.length; j++){
-                                    if(_result[i]==WHEN[j]){
+                            for(k = 0; k<_result.length; k++){
+                                for(l = 0; l<WHEN.length; l++){
+                                    if(_result[k]==WHEN[l]){
                                         console.log("WHEN");
                                         funccode = "askQuestion";
                                         console.log("now funccode :"+funccode);
-                                        for(i = 0;i<_result.length;i++){
-                                            if(_result[i]=="吃"){
-                                                _result.splice(i,1);
+                                        for(m = 0;m<_result.length;m++){
+                                            if(_result[m]=="吃"){
+                                                _result.splice(m,1);
 
                                                 //詢問鍛鍊前飲食或鍛鍊後飲食
-                                                for(i = 0; i< _result.length; i++){
-                                                    if(_result[i] == "前"){
+                                                for(n = 0; n< _result.length; n++){
+                                                    if(_result[n] == "前"){
                                                         qma.eatbftrain(event);
                                                         funccode = "home";
                                                         break func;
                                                     }
-                                                    else if(_result[i] == "前"){
+                                                    else if(_result[n] == "前"){
                                                         qma.eatafttrain(event);
                                                         funccode = "home";
                                                         break func;
