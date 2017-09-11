@@ -210,11 +210,10 @@ bot.on('message',function(event){
                             }  
                         }
                     }
-                    console.log("No whatis");
+
                     //詢問模式：什麼時候該...?
                     for(j = 0; j< WHEN.length; j++){
                         if(_result[i] == WHEN[j]){
-                            
                             _result.splice(i,1);
                             //WHEN.splice(j,1);
                             for(k = 0; k< _result.length; k++){
@@ -226,7 +225,6 @@ bot.on('message',function(event){
                                         for(m = 0; m < _result.length; m++){
                                             if(_result[m] == "吃"){
                                                 _result.splice(m,1);
-
                                                 //詢問鍛鍊前飲食或鍛鍊後飲食
                                                 for(n = 0; n< _result.length; n++){
                                                     if(_result[n] == "前"){
@@ -249,10 +247,9 @@ bot.on('message',function(event){
                                     }
                                 }
                             }
-                            console.log(_result.join('-'));
-                            console.log("no when");
                         }
-                        
+                        console.log(_result.join('-'));
+                        console.log("no when");
                     }
                 }
                 // for (i = 0; i < _result.length; i++){
