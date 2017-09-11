@@ -221,13 +221,13 @@ bot.on('message',function(event){
                                 if(_result[m] == "吃"){
                                     //詢問鍛鍊前飲食或鍛鍊後飲食
                                     for(n = 0; n< _result.length; n++){
-                                        if(_result[n] == "前"){
+                                        if(_result[n] == "前"||_result[n] == "之前"||_result[n] == "以前"){
                                             console.log("前");
                                             qma.eatbftrain(event);
                                             funccode = "home";
                                             break func;
                                         }
-                                        else if(_result[n] == "後"){
+                                        else if(_result[n] == "後"||_result[n] == "之後"||_result[n] == "以後"){
                                             console.log("後");
                                             qma.eatafttrain(event);
                                             funccode = "home";
