@@ -170,14 +170,12 @@ bot.on('message',function(event){
                         }
                         for (k = 0; k < _result.length; k++){
                             if(_result[k]=="吃"){
-                                for (l = 0; l < _result.length; l++){
-                                    if(_result[l]=="什麼"||_result[l]=="怎麼"){
-                                        qma.howtoeat(event);
-                                        funccode = "home";
-                                    }
-                                }
-                                break;
+                                qma.howtoeat(event);
+                                funccode = "home";  
+                                break;  
                             }
+                            
+                            
                         }
                         
                     }
