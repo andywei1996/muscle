@@ -216,15 +216,15 @@ bot.on('message',function(event){
                         if(_result[i] == WHEN[j]){
                             
                             _result.splice(i,1);
-                            WHEN.splice(j,1);
+                            //WHEN.splice(j,1);
                             for(k = 0; k< _result.length; k++){
                                 for(l = 0; l< WHEN.length; l++){
-                                    if(_result[k]==WHEN[l]){
+                                    if(_result[k] == WHEN[l]){
                                         console.log("WHEN");
                                         funccode = "askQuestion";
                                         console.log("now funccode :"+funccode);
                                         for(m = 0; m < _result.length; m++){
-                                            if(_result[m]=="吃"){
+                                            if(_result[m] == "吃"){
                                                 _result.splice(m,1);
 
                                                 //詢問鍛鍊前飲食或鍛鍊後飲食
