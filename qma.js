@@ -88,7 +88,30 @@ exports.howtoeat = function(event){
         +"盡量吃沒有加工過的原形食物。"         
     );
 }
-
+exports.dietctrl = function(event){
+    msg = {
+        "type": "template",
+        "altText": "減脂時期或者增肌時期的飲食控制方式並不相同喲！請問您目前處於哪一個時期呢？",
+        "template": {
+            "type": "buttons",
+            "title": "",
+            "text": "減脂時期或者增肌時期的飲食控制方式並不相同喲！請問您目前處於哪一個時期呢？",
+            "actions": [
+                {
+                  "type": "message",
+                  "label": "減脂",
+                  "text": "減脂"
+                },
+                {
+                    "type": "message",
+                    "label": "增肌",
+                    "text": "增肌"
+                }
+            ]
+        }
+      }
+    event.reply(msg);
+}
 exports.dienctrlforlessfat = function(event){
     msg = {
         "type": "template",

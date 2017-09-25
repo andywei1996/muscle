@@ -248,22 +248,27 @@ bot.on('message',function(event){
                             console.log("HOW");
                             funccode = "askQuestion";
                             console.log("Now Funccode :"+funccode);
-                            for(k = 0; k < _result.length; j++){
-                                if(_result[k] == "減脂"){
+                            for(k = 0; k < _result.length; k++){
+                                if(_result[l]== "飲食"){
                                     for(l = 0; l < _result.length; l++){
-                                        if(_result[l]== "飲食"){
-                                            for(m = 0; m < _result.length; m++){
-                                                if(_result[l]== "控制"){
-                                                    //該如何控制飲食？
+                                        if(_result[l]== "控制"){
+                                            for(m = 0 ; m < _result.length; m++){
+                                                if(_result[m] == "減脂"){
+                                                    //減脂期的飲食控制？
                                                     qma.dienctrlforlessfat(event);
-                                                    funcstep = 1;
+                                                    funcstep = 2;
                                                     break func;
                                                 }
                                             }
+                                            //該如何控制飲食？
+                                            qma.dietctrl(event);
+                                            qma.dienctrlforlessfat(event);
+                                            funcstep = 1;
+                                            break func;
                                         }
                                     }
                                 }
-                            }
+                            }    
                         }
                     }
                 }
