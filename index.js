@@ -249,9 +249,9 @@ bot.on('message',function(event){
                             funccode = "askQuestion";
                             console.log("Now Funccode :"+funccode);
                             for(k = 0; k < _result.length; k++){
-                                if(_result[l]== "飲食"){
+                                if(_result[k]== "飲食"){
                                     for(l = 0; l < _result.length; l++){
-                                        if(_result[l]== "控制"){
+                                        if(_result[l] == "控制"){
                                             for(m = 0 ; m < _result.length; m++){
                                                 if(_result[m] == "減脂"){
                                                     //減脂期的飲食控制？
