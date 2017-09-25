@@ -250,10 +250,13 @@ bot.on('message',function(event){
                             console.log("Now Funccode :"+funccode);
                             for(k = 0; k < _result.length; k++){
                                 if(_result[k]== "飲食"){
+                                    console.log("%%%");
                                     for(l = 0; l < _result.length; l++){
                                         if(_result[l] == "控制"){
+                                            console.log("%%%");
                                             for(m = 0 ; m < _result.length; m++){
                                                 if(_result[m] == "減脂"){
+                                                    console.log("%%%");
                                                     //減脂期的飲食控制？
                                                     qma.dienctrlforlessfat(event);
                                                     funcstep = 2;
