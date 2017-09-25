@@ -289,13 +289,13 @@ bot.on('message',function(event){
     }
     //減脂的飲食控制
     else if(funccode=="dietforlessfat" && funcstep == 1){
-        if(event.mseeage.text == "蛋白質控制"){
+        if(event.message.text == "蛋白質控制"){
             qma.dienforlessfat_protein(event);
         }
-        else if(event.mseeage.text == "熱量控制"){
+        else if(event.message.text == "熱量控制"){
             qma.dienforlessfat_heat(event);
         }
-        else if(event.mseeage.text == "營養素控制"){
+        else if(event.message.text == "營養素控制"){
             qma.dienforlessfat_nutrient(event);
         }
         else{
