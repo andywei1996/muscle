@@ -127,21 +127,6 @@ bot.on('message',function(event){
             var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
 
             func : {
-                if(funccode=="dietforlessfat" && funcstep == 1){
-                    if(event.mseeage.text == "蛋白質控制"){
-                        qma.dienforlessfat_protein(event);
-                    }
-                    else if(event.mseeage.text == "熱量控制"){
-                        qma.dienforlessfat_heat(event);
-                    }
-                    else if(event.mseeage.text == "營養素控制"){
-                        qma.dienforlessfat_nutrient(event);
-                    }
-                    else{
-                        funccode = "home";
-                        funcstep = 0;
-                    }
-                }
                 for (i = 0; i < _result.length; i++){
                     for(j = 0; j < BMR.length; j++){
                         if(_result[i] == BMR[j]){
@@ -301,6 +286,22 @@ bot.on('message',function(event){
             funccode = "home";
         }
         console.log("out funcstep = " + funcstep);    
+    }
+    //減脂的飲食控制
+    else if(funccode=="dietforlessfat" && funcstep == 1){
+        if(event.mseeage.text == "蛋白質控制"){
+            qma.dienforlessfat_protein(event);
+        }
+        else if(event.mseeage.text == "熱量控制"){
+            qma.dienforlessfat_heat(event);
+        }
+        else if(event.mseeage.text == "營養素控制"){
+            qma.dienforlessfat_nutrient(event);
+        }
+        else{
+            funccode = "home";
+            funcstep = 0;
+        }
     }
     
 });
