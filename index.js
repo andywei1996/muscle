@@ -258,14 +258,16 @@ bot.on('message',function(event){
                                                     console.log("%%%2");
                                                     //減脂期的飲食控制？
                                                     qma.dienctrlforlessfat(event);
-                                                    funcstep = 2;
+                                                    funccode = "home";
+                                                    funcstep = 0;
                                                     break func;
                                                 }
                                             }
                                             //該如何控制飲食？
                                             console.log("%%%3");
                                             qma.dietctrl(event);
-                                            funcstep = 1;
+                                            funccode = "home";
+                                            funcstep = 0;
                                             break func;
                                         }
                                     }
