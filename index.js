@@ -123,6 +123,7 @@ bot.on('message',function(event){
 
             var WHATIS = ["啥","什麼","?","？"]
             var WHEN = ["什麼時候","時候","時","啥時","能夠","前","後","之前","之後"]
+            var HOW = ["如何","怎麼","怎樣"];            
             var BMR = ["BMR","基礎代謝率", "bmr", "ＢＭＲ","ｂｍｒ"];
 
             func : {
@@ -237,6 +238,30 @@ bot.on('message',function(event){
                                     qma.whentoEat(event);
                                     funccode = "home";
                                     break func;        
+                                }
+                            }
+                        }
+                    }
+                    //該如何...?
+                    for(j = 0; j< HOW.length; j++){
+                        if(_result[i] == HOW[j]){
+                            console.log("HOW");
+                            funccode = "askQuestion";
+                            console.log("Now Funccode :"+funccdoe);
+                            for(k = 0; k < _result.length; j++){
+                                if(_result[k] == "減脂"){
+                                    for(l = 0; l < _result.length; l++){
+                                        if(_result[l]== "飲食"){
+                                            for(m = 0; m < _result.length; m++){
+                                                if(_result[l]== "控制"){
+                                                    //該如何控制飲食？
+                                                    qma.dienctrlforlessfat(event);
+                                                    funcstep = 1;
+                                                    break func;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

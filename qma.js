@@ -88,3 +88,33 @@ exports.howtoeat = function(event){
         +"盡量吃沒有加工過的原形食物。"         
     );
 }
+
+exports.dienctrlforlessfat = function(event){
+    msg = {
+        "type": "template",
+        "altText": "減脂時期的飲食控制共有蛋白質、熱量、營養素控管三個面向，您想詢問哪一個呢？",
+        "template": {
+            "type": "buttons",
+            "title": "",
+            "text": "減脂時期的飲食控制共有三個面向，您想詢問哪一個呢？",
+            "actions": [
+                {
+                  "type": "message",
+                  "label": "蛋白質控制",
+                  "text": "蛋白質控制"
+                },
+                {
+                    "type": "message",
+                    "label": "熱量控制",
+                    "text": "熱量控制"
+                },
+                {
+                    "type": "message",
+                    "label": "營養素控制",
+                    "text": "營養素控制"
+                }
+            ]
+        }
+      }
+    event.reply(msg);
+}
