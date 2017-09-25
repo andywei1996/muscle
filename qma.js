@@ -99,12 +99,12 @@ exports.dietctrl = function(event){
                 {
                   "type": "message",
                   "label": "減脂",
-                  "text": "減脂"
+                  "text": "減脂期如何控制飲食呢？"
                 },
                 {
                     "type": "message",
                     "label": "增肌",
-                    "text": "增肌"
+                    "text": "增肌期如何控制飲食呢？"
                 }
             ]
         }
@@ -138,4 +138,23 @@ exports.dienctrlforlessfat = function(event){
         }
       }
     event.reply(msg);
+}
+exports.dietforlessfat_protein = function(event){
+    event.reply(
+        "為了避免在減脂時期肌肉被身體代謝消耗掉，蛋白質攝取的量不能減少，\n"
+        +"甚至要增加到自身體體重(公斤換算成公克)2.5~2.8倍的量，以補充肌肉在重量訓練過程中受到的微小傷害。"
+    );
+}
+exports.dietforlessfat_heat = function(event){
+    event.reply(
+        "建議在減脂時攝取比TDEE低約15%~25%的熱量，例如一個人的TDEE在2500大卡，\n"
+        +"那在減脂時應該攝取1875大卡到2125大卡中間的熱量。"
+    );
+}
+exports.dietforlessfat_heat = function(event){
+    event.reply(
+        "當人體攝取的熱量比消耗掉的熱量要低的時候，體重自然會下降，\n"
+        +"因此需要攝取比TDEE還低的熱量。不過不能減少蛋白質的攝取量，\n"
+        +"而脂肪對身體的許多功能也有相當重要的作用，所以減少碳水化合物的攝取是最好的選擇。"
+    );
 }

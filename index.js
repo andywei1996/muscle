@@ -258,8 +258,8 @@ bot.on('message',function(event){
                                                     console.log("%%%2");
                                                     //減脂期的飲食控制？
                                                     qma.dienctrlforlessfat(event);
-                                                    funccode = "home";
-                                                    funcstep = 0;
+                                                    funccode = "dietforlessfat";
+                                                    funcstep = 1;
                                                     break func;
                                                 }
                                             }
@@ -267,12 +267,26 @@ bot.on('message',function(event){
                                             console.log("%%%3");
                                             qma.dietctrl(event);
                                             funccode = "home";
-                                            funcstep = 0;
                                             break func;
                                         }
                                     }
                                 }
                             }    
+                        }
+                    }
+                    if(funccode=="dietforlessfat" && funcstep == 1){
+                        if(event.mseeage.text == "蛋白質控制"){
+                            qma.dienforlessfat_protein(event);
+                        }
+                        else if(event.mseeage.text == "熱量控制"){
+                            qma.dienforlessfat_heat(event);
+                        }
+                        else if(event.mseeage.text == "營養素控制"){
+                            qma.dienforlessfat_nutrient(event);
+                        }
+                        else{
+                            funccode = "home";
+                            funcstep = 0;
                         }
                     }
                 }
