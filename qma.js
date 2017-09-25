@@ -111,7 +111,7 @@ exports.dietctrl = function(event){
     }
     event.reply(msg);
 }
-exports.dienctrlforlessfat = function(event){
+exports.dietctrlforlessfat = function(event){
     var msg = {
         "type": "template",
         "altText": "減脂時期的飲食控制共有蛋白質、熱量、營養素控管三個面向，您想詢問哪一個呢？",

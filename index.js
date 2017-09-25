@@ -257,7 +257,7 @@ bot.on('message',function(event){
                                                 if(_result[m] == "減脂"){
                                                     console.log("%%%2");
                                                     //減脂期的飲食控制？
-                                                    qma.dienctrlforlessfat(event);
+                                                    qma.dietctrlforlessfat(event);
                                                     funccode = "dietforlessfat";
                                                     funcstep = 1;
                                                     break func;
@@ -290,18 +290,16 @@ bot.on('message',function(event){
     //減脂的飲食控制
     else if(funccode=="dietforlessfat" && funcstep == 1){
         if(event.message.text == "蛋白質控制"){
-            qma.dienforlessfat_protein(event);
+            qma.dietforlessfat_protein(event);
         }
         else if(event.message.text == "熱量控制"){
-            qma.dienforlessfat_heat(event);
+            qma.dietforlessfat_heat(event);
         }
         else if(event.message.text == "營養素控制"){
-            qma.dienforlessfat_nutrient(event);
+            qma.dietforlessfat_nutrient(event);
         }
-        else{
-            funccode = "home";
-            funcstep = 0;
-        }
+        funccode = "home";
+        funcstep = 0;
     }
     
 });
