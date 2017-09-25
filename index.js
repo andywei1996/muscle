@@ -250,13 +250,12 @@ bot.on('message',function(event){
                             console.log("Now Funccode :"+funccode);
                             for(k = 0; k < _result.length; k++){
                                 if(_result[k]== "飲食"){
-                                    console.log("%%%");
+                                    console.log("%%%1");
                                     for(l = 0; l < _result.length; l++){
                                         if(_result[l] == "控制"){
-                                            
                                             for(m = 0 ; m < _result.length; m++){
                                                 if(_result[m] == "減脂"){
-                                                    console.log("%%%");
+                                                    console.log("%%%2");
                                                     //減脂期的飲食控制？
                                                     qma.dienctrlforlessfat(event);
                                                     funcstep = 2;
@@ -264,7 +263,7 @@ bot.on('message',function(event){
                                                 }
                                             }
                                             //該如何控制飲食？
-                                            console.log("%%%");
+                                            console.log("%%%3");
                                             qma.dietctrl(event);
                                             funcstep = 1;
                                             break func;
