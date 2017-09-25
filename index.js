@@ -247,7 +247,7 @@ bot.on('message',function(event){
                         if(_result[i] == HOW[j]){
                             console.log("HOW");
                             funccode = "askQuestion";
-                            console.log("Now Funccode :"+funccdoe);
+                            console.log("Now Funccode :"+funccode);
                             for(k = 0; k < _result.length; j++){
                                 if(_result[k] == "減脂"){
                                     for(l = 0; l < _result.length; l++){
