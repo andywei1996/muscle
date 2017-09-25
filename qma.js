@@ -89,12 +89,11 @@ exports.howtoeat = function(event){
     );
 }
 exports.dietctrl = function(event){
-    msg = {
+    var msg = {
         "type": "template",
         "altText": "減脂時期或者增肌時期的飲食控制方式並不相同喲！請問您目前處於哪一個時期呢？",
         "template": {
             "type": "buttons",
-            "title": "",
             "text": "減脂時期或者增肌時期的飲食控制方式並不相同喲！請問您目前處於哪一個時期呢？",
             "actions": [
                 {
@@ -109,16 +108,15 @@ exports.dietctrl = function(event){
                 }
             ]
         }
-      }
+    }
     event.reply(msg);
 }
 exports.dienctrlforlessfat = function(event){
-    msg = {
+    var msg = {
         "type": "template",
         "altText": "減脂時期的飲食控制共有蛋白質、熱量、營養素控管三個面向，您想詢問哪一個呢？",
         "template": {
             "type": "buttons",
-            "title": "",
             "text": "減脂時期的飲食控制共有三個面向，您想詢問哪一個呢？",
             "actions": [
                 {
