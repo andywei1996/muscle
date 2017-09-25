@@ -253,7 +253,7 @@ bot.on('message',function(event){
                                     console.log("%%%");
                                     for(l = 0; l < _result.length; l++){
                                         if(_result[l] == "控制"){
-                                            console.log("%%%");
+                                            
                                             for(m = 0 ; m < _result.length; m++){
                                                 if(_result[m] == "減脂"){
                                                     console.log("%%%");
@@ -264,8 +264,8 @@ bot.on('message',function(event){
                                                 }
                                             }
                                             //該如何控制飲食？
+                                            console.log("%%%");
                                             qma.dietctrl(event);
-                                            qma.dienctrlforlessfat(event);
                                             funcstep = 1;
                                             break func;
                                         }
