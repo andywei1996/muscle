@@ -105,7 +105,7 @@ bot.on('message',function(event){
         });
     }
     else if (event.message.type == 'text' && event.message.text =="我想鍛鍊腿部！"){
-        var id  = event.message.source.userId.toString();
+        var id  = event.source.userId;
         event.reply(
             "我知道了！讓我來助你一臂之力💪"         
         );
