@@ -113,7 +113,7 @@ bot.on('message',function(event){
             type: 'text',
             text: '以下這個影片，將有效幫助你進行腿部的訓練，要注意觀看重點提示哦😉'
         };
-        bot.pushMessage(id,msg);
+        bot.push(id,msg);
 
     }
 
