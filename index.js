@@ -49,7 +49,7 @@ var bot =linebot({
     channelAccessToken: "jHRM9rD3O8NyJL8817rGwaWzimo15AUrWRj1oTnJLyjJC8L+guKxnO3KD1jfkBxXAvY75Xa1Pv/nW4GK0mvb9TpPp7Y53UPhuuf+KQdc9b2Vm60RwlrNFWwynvms+sOqQOZvfPGSAw1gOyLAKLwgBwdB04t89/1O/w1cDnyilFU="    //Channel Access Token
 });
 
-const client = new line.Client({
+const client = new linebot.Client({
     channelAccessToken: "jHRM9rD3O8NyJL8817rGwaWzimo15AUrWRj1oTnJLyjJC8L+guKxnO3KD1jfkBxXAvY75Xa1Pv/nW4GK0mvb9TpPp7Y53UPhuuf+KQdc9b2Vm60RwlrNFWwynvms+sOqQOZvfPGSAw1gOyLAKLwgBwdB04t89/1O/w1cDnyilFU="    //Channel Access Token
 });
 
@@ -113,7 +113,7 @@ bot.on('message',function(event){
             type: 'text',
             text: '以下這個影片，將有效幫助你進行腿部的訓練，要注意觀看重點提示哦😉'
         };
-        client.pushMessage(id,msg);
+        event.push(id,msg);
 
     }
 
