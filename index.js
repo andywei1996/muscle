@@ -49,6 +49,10 @@ var bot =linebot({
     channelAccessToken: "jHRM9rD3O8NyJL8817rGwaWzimo15AUrWRj1oTnJLyjJC8L+guKxnO3KD1jfkBxXAvY75Xa1Pv/nW4GK0mvb9TpPp7Y53UPhuuf+KQdc9b2Vm60RwlrNFWwynvms+sOqQOZvfPGSAw1gOyLAKLwgBwdB04t89/1O/w1cDnyilFU="    //Channel Access Token
 });
 
+const client = new line.Client({
+    channelAccessToken: "jHRM9rD3O8NyJL8817rGwaWzimo15AUrWRj1oTnJLyjJC8L+guKxnO3KD1jfkBxXAvY75Xa1Pv/nW4GK0mvb9TpPp7Y53UPhuuf+KQdc9b2Vm60RwlrNFWwynvms+sOqQOZvfPGSAw1gOyLAKLwgBwdB04t89/1O/w1cDnyilFU="    //Channel Access Token
+});
+
 //印出從LINE收到的訊息
 bot.on('message',function(event){
     //console.log(event);
@@ -100,12 +104,18 @@ bot.on('message',function(event){
             console.log('error');   //若有錯誤，catch下來後註記在log中
         });
     }
-    // else if (event.message.type == 'text' && event.message.text =="我想鍛鍊腿部！"){
-    //     event.reply(
-    //         "我知道了！讓我來助你一臂之力💪"         
-    //     );
+    else if (event.message.type == 'text' && event.message.text =="我想鍛鍊腿部！"){
+        var id  = event.message.source.userId.toString();
+        event.reply(
+            "我知道了！讓我來助你一臂之力💪"         
+        );
+        msg ={ 
+            type: 'text',
+            text: '以下這個影片，將有效幫助你進行腿部的訓練，要注意觀看重點提示哦😉'
+        };
+        client.pushMessage(id,msg);
 
-    // }
+    }
 
     if (event.message.type == 'text' && funccode == "home"){  //接收純文字內容
         //var msg = event.message.text + " 收到！";
