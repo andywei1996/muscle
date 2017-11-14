@@ -101,12 +101,12 @@ bot.on('message',function(event){
         });
     }
     else if (event.message.type == 'text' && event.message.text =="我想鍛鍊腿部！"){
-        bot.reply("我知道了！讓我來助你一臂之力💪");
+        event.reply("我知道了！讓我來助你一臂之力💪");
         msg ={ 
             type: 'text',
             text: '以下這個影片，將有效幫助你進行腿部的訓練，要注意觀看重點提示哦😉'
         };
-        bot.push(id,msg);
+        event.push(id,msg);
 
     }
 
