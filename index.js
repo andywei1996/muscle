@@ -66,6 +66,7 @@ var server = app.listen(process.env.PORT || 8080,function(){
 });
 bot.on('message',function(event){
     //收到通關密語後，建立一個選單讓使用者選擇想要使用的功能
+    console.log(event);
     if(event.message.type == 'text' && event.message.text == "fuckreset"){
         funccode = "home";funcstep = 0;
         event.reply("done.");
@@ -99,6 +100,12 @@ bot.on('message',function(event){
             console.log('error');   //若有錯誤，catch下來後註記在log中
         });
     }
+    // else if (event.message.type == 'text' && event.message.text =="我想鍛鍊腿部！"){
+    //     event.reply(
+    //         "我知道了！讓我來助你一臂之力💪"         
+    //     );
+
+    // }
 
     if (event.message.type == 'text' && funccode == "home"){  //接收純文字內容
         //var msg = event.message.text + " 收到！";
