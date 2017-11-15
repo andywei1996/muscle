@@ -100,14 +100,37 @@ bot.on('message',function(event){
             console.log('error');   //若有錯誤，catch下來後註記在log中
         });
     }
-    else if (event.message.type == 'text' && event.message.text =="我想鍛鍊腿部！"){
-        bot.push(id,{type:'text', text:"我知道了！讓我來助你一臂之力💪"});
+    else if (event.message.type == 'text' && event.message.text =="我想鍛鍊手臂！"){
         msg ={ 
             type: 'text',
-            text: '以下這個影片，將有效幫助你進行腿部的訓練，要注意觀看重點提示哦😉'
+            text: '以下這個影片，將有效幫助你進行手臂鍛鍊，記得注意重點提示哦😉\n'
+            +'https://youtu.be/J3FCpjDGCkA'
         };
         event.reply(msg);
-
+    }
+    else if (event.message.type == 'text' && event.message.text =="我想鍛鍊腿部！"){
+        msg ={ 
+            type: 'text',
+            text: '以下這個影片，將有效幫助你進行腿部的訓練，要注意觀看重點提示哦😉\n'
+            +'https://youtu.be/p0CB8nQOJqs'
+        };
+        event.reply(msg);
+    }
+    else if (event.message.type == 'text' && event.message.text =="我想鍛鍊胸部！"){
+        msg ={ 
+            type: 'text',
+            text: '好的\n以下這個影片，將有效幫助你進行訓練胸肌！要注意觀看重點提示哦😉\n'
+            +'https://youtu.be/xoTjmfJWNuM'
+        };
+        event.reply(msg);
+    }
+    else if (event.message.type == 'text' && event.message.text =="我想鍛鍊背部！"){
+        msg ={ 
+            type: 'text',
+            text: '好的\n以下這個影片，將有效幫助你進行背部的訓練，要注意觀看重點提示哦😉\n'
+            +'https://youtu.be/HQWK5NjaD3A'
+        };
+        event.reply(msg);
     }
 
     if (event.message.type == 'text' && funccode == "home"){  //接收純文字內容
