@@ -103,7 +103,14 @@ bot.on('message',function(event){
     else if (event.message.type == 'text' && event.message.text =="我想鍛鍊手臂！"){
         msg ={ 
             type: 'text',
-            text: '以下這個影片，將有效幫助你進行手臂鍛鍊，記得注意重點提示哦😉\n'
+            text: '好的，那麼您想透過阻力器材鍛鍊，還是進行一般訓練呢？'
+        };
+        event.reply(msg);
+    }
+    else if (event.message.type == 'text' && event.message.text =="阻力器材"){
+        msg ={ 
+            type: 'text',
+            text: '以下這個影片，將有效幫助你進行手臂的訓練，要注意觀看重點提示哦😉\n'
             +'https://youtu.be/J3FCpjDGCkA'
         };
         event.reply(msg);
