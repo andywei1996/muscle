@@ -49,6 +49,7 @@ var bot =linebot({
     channelAccessToken: "jHRM9rD3O8NyJL8817rGwaWzimo15AUrWRj1oTnJLyjJC8L+guKxnO3KD1jfkBxXAvY75Xa1Pv/nW4GK0mvb9TpPp7Y53UPhuuf+KQdc9b2Vm60RwlrNFWwynvms+sOqQOZvfPGSAw1gOyLAKLwgBwdB04t89/1O/w1cDnyilFU="    //Channel Access Token
 });
 
+var training ="";
 //印出從LINE收到的訊息
 bot.on('message',function(event){
     console.log(event);
@@ -103,16 +104,18 @@ bot.on('message',function(event){
     else if (event.message.type == 'text' && event.message.text =="我想鍛鍊手臂！"){
         msg ={ 
             type: 'text',
-            text: '好的，那麼您想透過阻力器材鍛鍊，還是進行一般訓練呢？'
+            text: '好的，那麼您想透過阻力器材鍛鍊，還是進行一般訓練呢？'   
         };
+        training = "手臂";
         event.reply(msg);
     }
-    else if (event.message.type == 'text' && event.message.text =="阻力器材"){
+    else if (event.message.type == 'text' && event.message.text =="阻力器材" && training == "手臂"){
         msg ={ 
             type: 'text',
-            text: '以下這個影片，將有效幫助你進行手臂的訓練，要注意觀看重點提示哦😉\n'
+            text: 'OK, 以下這個影片，將有效幫助你進行手臂的訓練，要注意觀看重點提示哦😉\n'
             +'https://youtu.be/J3FCpjDGCkA'
         };
+        training = "";
         event.reply(msg);
     }
     else if (event.message.type == 'text' && event.message.text =="我想鍛鍊腿部！"){
@@ -126,9 +129,19 @@ bot.on('message',function(event){
     else if (event.message.type == 'text' && event.message.text =="我想鍛鍊胸部！"){
         msg ={ 
             type: 'text',
+            text: '好的，經過分析，我們較推薦使用阻力器材的訓練\n您想看看教學影片嗎？';
+            
+        };
+        training = "胸部";
+        event.reply(msg);
+    }
+    else if (event.message.type == 'text' && event.message.text =="我想鍛鍊胸部！" && training == "胸部"){
+        msg ={ 
+            type: 'text',
             text: '好的\n以下這個影片，將有效幫助你進行訓練胸肌！要注意觀看重點提示哦😉\n'
             +'https://youtu.be/xoTjmfJWNuM'
         };
+        training = "";
         event.reply(msg);
     }
     else if (event.message.type == 'text' && event.message.text =="我想鍛鍊背部！"){
