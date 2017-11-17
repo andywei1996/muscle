@@ -129,7 +129,7 @@ bot.on('message',function(event){
     else if (event.message.type == 'text' && event.message.text =="我想鍛鍊胸部！"){
         msg ={ 
             type: 'text',
-            text: '好的，經過分析，我們較推薦使用阻力器材的訓練\n您想看看教學影片嗎？';
+            text: '好的，經過分析，我們較推薦使用阻力器材的訓練\n您想看看教學影片嗎？'
             
         };
         training = "胸部";
