@@ -135,7 +135,7 @@ bot.on('message',function(event){
         training = "胸部";
         event.reply(msg);
     }
-    else if (event.message.type == 'text' && event.message.text =="我想鍛鍊胸部！" && training == "胸部"){
+    else if (event.message.type == 'text' && event.message.text =="好呀" && training == "胸部"){
         msg ={ 
             type: 'text',
             text: '好的\n以下這個影片，將有效幫助你進行訓練胸肌！要注意觀看重點提示哦😉\n'
